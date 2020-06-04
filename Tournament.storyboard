@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="45Z-c3-MRV">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tournament View Controller-->
+        <scene sceneID="cOl-hl-GIB">
+            <objects>
+                <viewController id="s4S-QU-eFG" customClass="TournamentViewController" customModule="BrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zEJ-2M-WE9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyU-9T-nFe">
+                                <rect key="frame" x="0.0" y="89" width="375" height="533"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-Rh-T5d">
+                                        <rect key="frame" x="20" y="20" width="275" height="175"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eh-aU-ci2">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="175"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="6Eh-aU-ci2" secondAttribute="bottom" id="6VD-hU-8d9"/>
+                                            <constraint firstAttribute="height" constant="175" id="9oe-6h-UPh"/>
+                                            <constraint firstItem="6Eh-aU-ci2" firstAttribute="top" secondItem="c4i-Rh-T5d" secondAttribute="top" id="Fkj-G9-bYL"/>
+                                            <constraint firstItem="6Eh-aU-ci2" firstAttribute="leading" secondItem="c4i-Rh-T5d" secondAttribute="leading" id="K2h-GN-thQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="6Eh-aU-ci2" secondAttribute="trailing" id="eFv-Re-SOh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="fkb-DG-KOa" appends="YES" id="qJw-Ae-kUF"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-uF-iZm">
+                                        <rect key="frame" x="20" y="338" width="275" height="175"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8O-yN-3lQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="175"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="d8O-yN-3lQ" firstAttribute="top" secondItem="OeY-uF-iZm" secondAttribute="top" id="Gg7-90-AEL"/>
+                                            <constraint firstAttribute="width" constant="275" id="Ki3-MY-GSP"/>
+                                            <constraint firstAttribute="height" constant="175" id="T2g-Pi-5rA"/>
+                                            <constraint firstAttribute="trailing" secondItem="d8O-yN-3lQ" secondAttribute="trailing" id="gfq-I1-F96"/>
+                                            <constraint firstItem="d8O-yN-3lQ" firstAttribute="leading" secondItem="OeY-uF-iZm" secondAttribute="leading" id="swW-Sx-PAp"/>
+                                            <constraint firstItem="d8O-yN-3lQ" firstAttribute="centerX" secondItem="OeY-uF-iZm" secondAttribute="centerX" id="uWX-7k-yQ9"/>
+                                            <constraint firstAttribute="bottom" secondItem="d8O-yN-3lQ" secondAttribute="bottom" id="wvF-3P-Hu5"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="HUr-I8-ty1" appends="YES" id="Vfp-wu-YXL"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="c4i-Rh-T5d" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="20" id="7Js-gl-pdf"/>
+                                    <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="20" id="ARQ-a2-t0c"/>
+                                    <constraint firstItem="c4i-Rh-T5d" firstAttribute="top" secondItem="uyU-9T-nFe" secondAttribute="top" constant="20" id="PjH-kX-yjs"/>
+                                    <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="c4i-Rh-T5d" secondAttribute="leading" id="WF1-LQ-40s"/>
+                                    <constraint firstItem="OeY-uF-iZm" firstAttribute="centerX" secondItem="c4i-Rh-T5d" secondAttribute="centerX" id="cHA-eQ-nXl"/>
+                                    <constraint firstAttribute="bottom" secondItem="OeY-uF-iZm" secondAttribute="bottom" constant="20" id="kQr-f0-K67"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="a5X-Zd-xiy" appends="YES" id="QkW-Si-ELt"/>
+                                    <outletCollection property="gestureRecognizers" destination="hS5-yN-9hp" appends="YES" id="2HV-3Y-3GL"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eJt-j8-BIS" firstAttribute="trailing" secondItem="uyU-9T-nFe" secondAttribute="trailing" id="izN-E2-XsG"/>
+                            <constraint firstItem="eJt-j8-BIS" firstAttribute="bottom" secondItem="uyU-9T-nFe" secondAttribute="bottom" constant="45" id="njc-3X-VNQ"/>
+                            <constraint firstItem="uyU-9T-nFe" firstAttribute="leading" secondItem="zEJ-2M-WE9" secondAttribute="leading" id="oi7-nJ-wSx"/>
+                            <constraint firstItem="uyU-9T-nFe" firstAttribute="top" secondItem="eJt-j8-BIS" secondAttribute="top" constant="45" id="pyS-g3-8Ny"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eJt-j8-BIS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E1Q-8C-QbN">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="eNN-n1-UYY">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bPc-Ta-uLU">
+                                <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <segue destination="A5v-Ee-st2" kind="unwind" unwindAction="unwindToHome:" id="7ml-I5-cQI"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="choiceOneLabel" destination="6Eh-aU-ci2" id="nGx-bn-Ylf"/>
+                        <outlet property="choiceOneView" destination="c4i-Rh-T5d" id="nsN-nf-mPE"/>
+                        <outlet property="choiceTwoLabel" destination="d8O-yN-3lQ" id="rWp-0s-1nz"/>
+                        <outlet property="choiceTwoView" destination="OeY-uF-iZm" id="AZk-KE-nCa"/>
+                        <outlet property="choicesView" destination="uyU-9T-nFe" id="EaL-ej-daZ"/>
+                        <outlet property="tournamentView" destination="zEJ-2M-WE9" id="k18-Wq-xYW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y3x-St-yeY" sceneMemberID="firstResponder"/>
+                <exit id="A5v-Ee-st2" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="fkb-DG-KOa" userLabel="Tap On Choice One">
+                    <connections>
+                        <action selector="didTapOnChoiceOne:" destination="s4S-QU-eFG" id="YDf-S8-gXs"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HUr-I8-ty1" userLabel="Tap On Choice Two">
+                    <connections>
+                        <action selector="didTapOnChoiceTwo:" destination="s4S-QU-eFG" id="JjG-hf-ShP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="a5X-Zd-xiy" userLabel="Swipe Forward">
+                    <connections>
+                        <action selector="didSwipeForward:" destination="s4S-QU-eFG" id="PiH-6L-Hkl"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="hS5-yN-9hp" userLabel="Swipe Back">
+                    <connections>
+                        <action selector="didSwipeBack:" destination="s4S-QU-eFG" id="S69-Nz-fMR"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4720.8000000000002" y="124.58770614692655"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3jp-Lx-SgQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="45Z-c3-MRV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bd6-Xo-ScI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="s4S-QU-eFG" kind="relationship" relationship="rootViewController" id="duL-jE-SZF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPi-bs-yAB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3781.5999999999999" y="124.58770614692655"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+    </resources>
+</document>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController {
     
@@ -24,6 +24,10 @@ class ViewController: UIViewController {
         var optionTwo : Option
         var round : Int
     }
+    
+    var ref : DatabaseReference?
+    var databaseHandle : DatabaseHandle?
+    
     @IBOutlet weak var choicesView: UIView!
     
     @IBOutlet var tournamentView: UIView!
@@ -39,54 +43,57 @@ class ViewController: UIViewController {
     var currentRoundIndex = 0
     var currentNodeIndex = 0
     
+    var optionList : [Option] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Screen Style
         tournamentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
         //Choice styles
         choiceOneView.layer.cornerRadius = 20.0
         choiceTwoView.layer.cornerRadius = 20.0
         //Choice View Colors updated in "updateChoices"
-        
         //label style
         choiceOneLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         choiceOneLabel.layer.cornerRadius = 20.0
         choiceOneLabel.clipsToBounds = true
-        
         choiceTwoLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         choiceTwoLabel.layer.cornerRadius = 20.0
         choiceTwoLabel.clipsToBounds = true
         
+//        ref = Database.database().reference()
+//        print("BEFORE HANDLE")
+//        databaseHandle = (ref?.child("tournaments/categories/disney-pixar").observe(.value, with:{ (snapshot) in
+//            let titleList = snapshot.value as? [String]
+//            print("Test1)")
+//            if let actualTitleList = titleList {
+//                for title in actualTitleList {
+//                    print(title)
+//                    self.optionList.append(Option.init(label: title))
+//                }
+//            }
+//        }))
+//        print("Out")
+//        let disneyTitleList = ["Lion King", "Tarzan", "Princess and The Frog", "Lilo and Stitch", "Tangled", "Big Hero 6", "Frozen", "Moana",  "Aladdin", "Hercules", "Little Mermaid","Pocahontas", "Mulan", "Zootopia", "Beauty and The Beast", "Nightmare Before Christmas", "UP",  "Brave", "Toy Story","Toy Story 2",  "Coco",  "Cars 2", "Toy Story 3", "The Good Dinosaur", "Ratatouille", "Bugs Life", "Nemo",  "Inside Out", "Monsters Inc.", "Cars", "Incredibles", "Wall-E"]
         
-//        let data = DatabaseReference()
+//        let titles = [ "Drag Me Down", "strong", "One Thing", "If I Could Fly", "Best Song Ever", "Midnight Memories", "Little Things", "What A Feeling", "Perfect", "Half A Heart", "No Control", "End of A Day", "You&I", "Stockholm Syndrome", "What Makes You Beautiful", "Rock Me", "Story of My Life", "More Than This", "They Don't Know About Us", "A.M", "Kiss You", "Where Do Broken Hearts Go", "Night Changes", "Olivia", "History", "Happily", "Live While You're Young", "18", "Infinity", "Love You Goodbye", "Steal My Girl", "Fireproof"]
 //
-//        data.child("tournament/categories/disney-pixar").set(disneyTitlesList)
-            
-            
-            
+//        let countryTitles = ["Luke Bryan", "Kelsea Ballerini", "Eric Church", "Zac Brown Band", "Tim McGraw", "Thomas Rhett", "Keith Urban", "Brett Eldredge", "Blake Shelton", "Little Big Town", "Miranda Lambert", "Florida Georgia Line", "Carrie Underwood", "Dierks Bentley", "Kenny Chesney", "Sam Hunt" ]
+//
         
+        let beatlesTitles = ["Love Me Do", "The Long & Winding Road", "Tomorrow Never Knows", "Yellow Submarine", "I've Just Seen a Face", "Ob-La-Di Ob-La-Da", "Ticket to Ride", "While My Guitar Gently Weeps", "A Hard Day's Night", "Come Together", "Michelle", "Hello Goodbye", "Girl", "All You Need Is Love", "I Want To Hold Your Hand", "Something", "Twist & Shout", "Octupus's Garden", "Eleanor Rigby", "Sgt. Pepper's Lonely Heart's Club Band", "We Can Work It Out", "Revolution", "Eight Days A Week", "Helter Skelter", "I Feel Fine", "Get Back", "Drive My Car", "Hey Jude", "Taxman", "With A Little Help From My Friends", "From Me To You", "Here Comes The Sun", "Please Please Me", "Across The Universe", "Got to Get You Into My Life", "Strawberry Fields Forever", "Yesterday", "Dear Prudence", "You've Got to Hide Your Love Away", "Happiness Is a Warm Gun", "And I Love Her", "The Ballad of John & Yoko", "Nowhere Man", "I Am The Walrus", "In My Life", "A Day In The Life", "All My Loving", "Oh Darling", "I Saw Her Standing There", "Let It Be", "Here, There, and Everywhere", "Penny Lane", "Day Tripper", "Back In The USSR", "Help!", "Blackbird", "Can't Buy Me Love", "Don't Let Me Down", "Norwegian Wood", "Lady Madonna", "Paperback Writer", "Lucy In The Sky With Diamonds", "She Loves You", "Abbey Road Medley"]
         
-        let disneyTitlesList = ["Lion King", "Tarzan", "Princess and The Frog", "Lilo and Stitch", "Tangled", "Big Hero 6", "Frozen", "Moana",  "Aladdin", "Hercules", "Little Mermaid","Pocahontas", "Mulan", "Zootopia", "Beauty and The Beast", "Nightmare Before Christmas", "UP",  "Brave", "Toy Story","Toy Story 2",  "Coco",  "Cars 2", "Toy Story 3", "The Good Dinosaur", "Ratatouille", "Bugs Life", "Nemo",  "Inside Out", "Monsters Inc.", "Cars", "Incredibles", "Wall-E"]
-            
-        
-        let titles = [ "Drag Me Down", "strong", "One Thing", "If I Could Fly", "Best Song Ever", "Midnight Memories", "Little Things", "What A Feeling", "Perfect", "Half A Heart", "No Control", "End of A Day", "You&I", "Stockholm Syndrome", "What Makes You Beautiful", "Rock Me", "Story of My Life", "More Than This", "They Don't Know About Us", "A.M", "Kiss You", "Where Do Broken Hearts Go", "Night Changes", "Olivia", "History", "Happily", "Live While You're Young", "18", "Infinity", "Love You Goodbye", "Steal My Girl", "Fireproof"]
-        
-        let countryTitles = ["Luke Bryan", "Kelsea Ballerini", "Eric Church", "Zac Brown Band", "Tim McGraw", "Thomas Rhett", "Keith Urban", "Brett Eldredge", "Blake Shelton", "Little Big Town", "Miranda Lambert", "Florida Georgia Line", "Carrie Underwood", "Dierks Bentley", "Kenny Chesney", "Sam Hunt" ]
-        
-        
-        //create options from titles
-        var disneyOptionList : [Option] = []
-        for title in countryTitles {
-            disneyOptionList.append(Option.init(label: title))
+        // create options from titles
+        var optionList : [Option] = []
+        for title in beatlesTitles {
+            optionList.append(Option.init(label: title))
         }
         
         //create competitor nodes from options
         var firstRound : [Node] = []
-        for i in 0..<disneyOptionList.count/2 {
-          firstRound.append(Node(optionOne: disneyOptionList[2*i], optionTwo: disneyOptionList[(2*i)+1], round: 1))
-        }
+        for i in 0..<optionList.count/2 {
+          firstRound.append(Node(optionOne: optionList[2*i], optionTwo: optionList[(2*i)+1], round: 1))
+        } 
         round.append(firstRound)
         updateChoices()
     }
@@ -108,7 +115,8 @@ class ViewController: UIViewController {
     //checks if end of round -> Create new round
     //or if end of tournament -> display final
     func checkEnd(){
-        //check if all is complete
+        
+        //checks if all is complete
         var allComplete = false
         var unfinishedNodeIndex = 0
         for i in 0..<round[currentRoundIndex].count {
