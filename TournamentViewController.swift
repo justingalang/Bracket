@@ -10,20 +10,10 @@ import UIKit
 //import Firebase
 
 class TournamentViewController: UIViewController {
-    
-    enum Status {
-		case win
-		case lose
-    }
-    struct Option {
-        var label : String
-        var status : Status?
-    }
-    struct Node {
-        var optionOne : Option
-        var optionTwo : Option
-        var round : Int
-    }
+	struct Direction {
+		static let forward = "forward"
+		static let prev = "prev"
+	}
     
 //    var ref : DatabaseReference?
 //    var databaseHandle : DatabaseHandle?
@@ -75,41 +65,42 @@ class TournamentViewController: UIViewController {
         
     }
 	
+	
 	/// Change choice one and choice two to enum - switch-case events
     @IBAction func didTapOnChoiceOne(_ sender: Any) {
 		tournament?.optionOneWins()
 		tournament?.nextNode()
-		animateChoicesOut(direction: "forward")
+		animateChoicesOut(direction: Direction.forward)
     }
     
     @IBAction func didTapOnChoiceTwo(_ sender: Any) {
 		tournament?.optionTwoWins()
 		tournament?.nextNode()
-		animateChoicesOut(direction: "forward")
+		animateChoicesOut(direction: Direction.forward)
     }
 	
     /// Swipe to previous choices
     @IBAction func didSwipeBack(_ sender: Any) {
         /*ADD SWITCH CASE HERE FOR DIRECTIONS*/
 		tournament?.prevNode()
-		print("SWIPE BACK CALL")
-        animateChoicesOut(direction: "prev")
-        print("back")
+		animateChoicesOut(direction: Direction.prev)
     }
     
-    /// Swipe to next choices
+    /// Swipe to next choices WANT TO GET RID OF
+	/*
     @IBAction func didSwipeForward(_ sender: Any) {
 		tournament?.nextNode()
 		print("SWIPE FORWARD CALL")
         animateChoicesOut(direction: "forward")
         print("forward")
-    }
+    } */
+	
     
     /// animation for swiping back
     func animateChoicesOut(direction: String) {
         var translateDist = -530
         //change direction
-        if direction == "prev" {
+		if direction == Direction.prev {
            translateDist *= -1
         }
         
@@ -124,7 +115,7 @@ class TournamentViewController: UIViewController {
     
     func animateChoicesIn(direction: String){
         var translateDist = 530
-        if direction == "prev" {
+		if direction == Direction.prev {
             translateDist *= -1
         }
         
