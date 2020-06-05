@@ -83,7 +83,7 @@ class TournamentViewController: UIViewController {
     @IBAction func didSwipeBack(_ sender: Any) {
         /*ADD SWITCH CASE HERE FOR DIRECTIONS*/
 		tournament?.prevNode()
-		animateChoicesOut(direction: Direction.prev)
+		animateChoicesOut(direction: Direction.prev) 
     }
     
     /// Swipe to next choices WANT TO GET RID OF

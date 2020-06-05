@@ -16,6 +16,14 @@ class PreviewViewController: UIViewController {
 	//@IBOutlet weak var backButton: UIBarButtonItem!
 	@IBOutlet weak var startButton: UIButton!
 	
+	
+	struct Storyboard {
+		static let previewToTournament = "PreviewToTournament"
+	}
+	struct Cell {
+		static let previewCell = "PreviewCell"
+	}
+	
 	var tournament: Tournament? 
 	
 	override func viewDidLoad() {
@@ -44,7 +52,7 @@ class PreviewViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "PreviewToTournament" {
+		if segue.identifier == Storyboard.previewToTournament {
 			let navigationController = segue.destination as! UINavigationController
 			let destVC = navigationController.topViewController as! TournamentViewController
 			//let destVC = segue.destination as! TournamentViewController
@@ -52,7 +60,7 @@ class PreviewViewController: UIViewController {
 		}
 	}
 	@IBAction func didTapOnStart(_ sender: Any) {
-		performSegue(withIdentifier: "PreviewToTournament", sender: self.tournament)
+		performSegue(withIdentifier: Storyboard.previewToTournament, sender: self.tournament)
 	}
 	
 }
@@ -70,7 +78,7 @@ extension PreviewViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let previewNode = tournament?.rounds[0][indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewCell") as! PreviewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: Cell.previewCell) as! PreviewCell
 		cell.setOptions(node: previewNode!)
 //		cell.optionOne.text = "test1"
 //		cell.optionTwo.text = "test2"
