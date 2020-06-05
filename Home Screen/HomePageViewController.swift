@@ -12,7 +12,14 @@ class HomePageViewController: UIViewController {
     
 	@IBOutlet weak var tournamentTableView: UITableView!
 	
+	struct Storyboard {
+		static let homeToPreview = "HomeToPreview"
+		static let homeToCreation = "HomeToCreation"
+	}
 	
+	struct Cell {
+		static let tournamentOption = "TournamentOption"
+	}
 	
 	var sampleTournamentTitles : [Tournament] = []
 	override func viewDidLoad() {
@@ -66,14 +73,16 @@ class HomePageViewController: UIViewController {
 		navigationItem.titleView = imageView
 	}
 	
+	
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == "HomeToPreview" {
+		if segue.identifier == Storyboard.homeToPreview{
 			let destVC = segue.destination as! PreviewViewController
 			destVC.tournament = sender as? Tournament
 		}
 	}
 	@IBAction func didPressCreate(_ sender: Any) {
-		performSegue(withIdentifier: "HomeToCreation", sender: Any?.self)
+		performSegue(withIdentifier: Storyboard.homeToCreation, sender: Any?.self)
 	}
 	
 	@IBAction func unwindToHome(_ sender: UIStoryboardSegue) {}
@@ -88,14 +97,14 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let tournamentOption = sampleTournamentTitles[indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: "TournamentOption") as! TournamentOptionCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: Cell.tournamentOption) as! TournamentOptionCell
 		cell.setTournament(tournament: tournamentOption)
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let tournament = sampleTournamentTitles[indexPath.row]
-		performSegue(withIdentifier: "HomeToPreview", sender: tournament)
+		performSegue(withIdentifier: Storyboard.homeToPreview, sender: tournament)
 	}
 }
 
