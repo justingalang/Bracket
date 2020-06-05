@@ -13,6 +13,9 @@ class CreationDetailViewController: UIViewController {
 	@IBOutlet weak var sizeField: UITextField!
 	@IBOutlet weak var setOptionView: UIView!
 	
+	struct Cell {
+		static let previewCell = "PreviewCell"
+	}
 	let tournamentSizes = ["2", "4", "8", "16", "32", "64", "128"]
 	var selectedSize: String?
 	
@@ -85,7 +88,7 @@ extension CreationDetailViewController: UITableViewDataSource, UITableViewDelega
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewCell") as! NodeCreationCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: Cell.previewCell) as! NodeCreationCell
 		return cell
 	}
 	
