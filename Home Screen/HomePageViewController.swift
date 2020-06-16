@@ -22,6 +22,8 @@ class HomePageViewController: UIViewController {
 	}
 	
 	var sampleTournamentTitles : [Tournament] = []
+	let defaults = UserDefaults.standard
+	
 	override func viewDidLoad() {
 			super.viewDidLoad()
 			
@@ -80,7 +82,13 @@ class HomePageViewController: UIViewController {
 			let destVC = segue.destination as! PreviewViewController
 			destVC.tournament = sender as? Tournament
 		}
+		
+		if segue.destination is CreationNavigationController {
+			defaults.set(8, forKey: "newTournamentSize")
+		}
 	}
+	
+	
 	@IBAction func didPressCreate(_ sender: Any) {
 		performSegue(withIdentifier: Storyboard.homeToCreation, sender: Any?.self)
 	}

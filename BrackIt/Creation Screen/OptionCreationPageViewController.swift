@@ -10,21 +10,22 @@ import UIKit
 
 class OptionCreationPageViewController: UIPageViewController {
 	
-	var optionTextFields : [UITextField]?
-	
+	var optionTextArray = [String]()
+	let defaults = UserDefaults.standard
 	struct Storyboard {
 		static let optionCreationViewController = "optionCreationViewController"
 	}
 	
 	lazy var controllers: [UIViewController] = {
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let storyboard = UIStoryboard(name: "Creation", bundle: nil)
 		var controllers = [UIViewController]()
-		if let images = self.optionTextFields {
-			for image in images {
-				let shoeImageVC = storyboard.instantiateViewController(identifier: Storyboard.optionCreationViewController)
-				controllers.append(shoeImageVC)
-			}
+		let pageCount = (defaults.integer(forKey: "newTournamentSize"))/8
+		
+		for i in 0..<pageCount {
+			let pageVC = storyboard.instantiateViewController(withIdentifier: Storyboard.optionCreationViewController)
+			controllers.append(pageVC)
 		}
+	
 		
 		return controllers
 	}()
@@ -56,7 +57,7 @@ class OptionCreationPageViewController: UIPageViewController {
 	func configureDisplaying(viewController: UIViewController) {
 		for (index, vc) in controllers.enumerated() {
 			if viewController === vc {
-//				if let shoeImageVC = viewController as? OptionCreationPageViewController
+				//if let shoeImageVC = viewController as? OptionCreationPageViewController
 			}
 		}
 	}

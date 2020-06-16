@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class CreationDetailViewController: UIViewController {
 	@IBOutlet weak var titleInputField: UITextField!
@@ -18,7 +19,7 @@ class CreationDetailViewController: UIViewController {
 	}
 	let tournamentSizes = ["2", "4", "8", "16", "32", "64", "128"]
 	var selectedSize: String?
-	
+	let defaults = UserDefaults.standard
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,6 @@ class CreationDetailViewController: UIViewController {
 		createSizePicker()
 		createToolbar()
     }
-	
 	
 	/// Creates Picker View
 	func createSizePicker() {
@@ -74,6 +74,8 @@ extension CreationDetailViewController: UIPickerViewDelegate, UIPickerViewDataSo
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		selectedSize = tournamentSizes[row]
 		sizeField.text = selectedSize
+		defaults.set(selectedSize, forKey: "newTournamentSize")
+		
 	}
 }
 

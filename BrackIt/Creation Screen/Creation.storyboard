@@ -116,7 +116,7 @@
         <!--Option Creation View Controller-->
         <scene sceneID="duB-vg-lch">
             <objects>
-                <viewController storyboardIdentifier="OptionCreationViewController" id="5UV-sh-cJe" customClass="OptionCreationViewController" customModule="BrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="optionCreationViewController" id="5UV-sh-cJe" customClass="OptionCreationViewController" customModule="BrackIt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XPa-fw-Fdy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="392"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="1993" y="757"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Creation Navigation Controller-->
         <scene sceneID="SF7-Ko-aqM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NiH-1h-QhB" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NiH-1h-QhB" customClass="CreationNavigationController" customModule="BrackIt" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YCi-Nn-bc1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
