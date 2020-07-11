@@ -58,6 +58,7 @@ class CreationDetailViewController: UIViewController {
 	}
 }
 
+///Picker View
 extension CreationDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 	func numberOfComponents(in pickerView: UIPickerView) -> Int {
 		return 1
@@ -79,6 +80,7 @@ extension CreationDetailViewController: UIPickerViewDelegate, UIPickerViewDataSo
 	}
 }
 
+///Picker View Datasource
 extension CreationDetailViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		

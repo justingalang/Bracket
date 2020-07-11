@@ -80,7 +80,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pwd-wT-Dn2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="-352"/>
+            <point key="canvasLocation" x="2157" y="-353"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="vPv-ud-jnH">
@@ -362,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jIE-y0-egs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2388" y="127.28635682158921"/>
+            <point key="canvasLocation" x="2556" y="128"/>
         </scene>
         <!--Tournament-->
         <scene sceneID="MW7-vZ-215">
@@ -372,12 +372,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mu0-Rn-3Iw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3172" y="128"/>
+            <point key="canvasLocation" x="3172" y="125"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="aH7-GN-04c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9GC-IT-DVM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ZF3-7f-9W8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nCc-5q-7zK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
