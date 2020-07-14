@@ -5,11 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-geography-50.png",
+      "filename" : "icons8-fire-50.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8-fire-100.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

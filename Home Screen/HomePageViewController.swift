@@ -26,8 +26,7 @@ class HomePageViewController: UIViewController {
 	
 	override func viewDidLoad() {
 			super.viewDidLoad()
-			
-      //self.title = "Bracket"
+		
 			let appearance = UINavigationBarAppearance()
 			appearance.configureWithOpaqueBackground()
 			appearance.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

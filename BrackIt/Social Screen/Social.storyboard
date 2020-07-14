@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WsR-DF-mka">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iWF-Ng-z5s">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Social-->
         <scene sceneID="qhu-aG-ISs">
             <objects>
                 <viewController id="WsR-DF-mka" sceneMemberID="viewController">
@@ -17,15 +17,40 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="C4c-SS-rl7"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="person.circle" catalog="system" id="6fg-Gm-tgV"/>
+                    <tabBarItem key="tabBarItem" title="" image="circle.bottomthird.split" catalog="system" landscapeImage="Social Icon" id="6fg-Gm-tgV">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Social" id="c4p-hX-dPT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WqU-P3-EFN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="132"/>
+            <point key="canvasLocation" x="1047.2" y="131.78410794602701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="P2C-WG-5OI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iWF-Ng-z5s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1fA-vN-nZP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WsR-DF-mka" kind="relationship" relationship="rootViewController" id="6MQ-0Y-1eP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8zH-gS-Lxr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="108" y="131.78410794602701"/>
         </scene>
     </scenes>
     <resources>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="Social Icon" width="25" height="25"/>
+        <image name="circle.bottomthird.split" catalog="system" width="128" height="121"/>
     </resources>
 </document>

@@ -32,7 +32,6 @@ class OptionCreationPageViewController: UIPageViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		automaticallyAdjustsScrollViewInsets = false
 		dataSource = self
 		delegate = self
