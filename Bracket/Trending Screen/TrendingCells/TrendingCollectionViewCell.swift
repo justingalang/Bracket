@@ -25,6 +25,7 @@ class TrendingCollectionViewCell: UICollectionViewCell {
 	public func configure (with tournament: Tournament) {
 		self.tournamentTitle.text = tournament.title
 		// self.tournamentImage
+		self.tournamentImage.contentMode = .scaleAspectFill
 	}
 
 }

@@ -26,10 +26,11 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
 		tableView.delegate = self
 		tableView.dataSource = self
 		
-		
+		//TEMPORARY Top Tournament
 		let tempTopTrending = Tournament(title: "Disney vs. Pixar", author: "Justin Galang", size: 32, description: "This is a test", optionTitlesList: ["Lion King", "Tarzan", "Princess and The Frog", "Lilo and Stitch", "Tangled", "Big Hero 6", "Frozen", "Moana",  "Aladdin", "Hercules", "Little Mermaid","Pocahontas", "Mulan", "Zootopia", "Beauty and The Beast", "Nightmare Before Christmas", "UP",  "Brave", "Toy Story","Toy Story 2",  "Coco",  "Cars 2", "Toy Story 3", "The Good Dinosaur", "Ratatouille", "Bugs Life", "Nemo",  "Inside Out", "Monsters Inc.", "Cars", "Incredibles", "Wall-E"])
 		topTrending = tempTopTrending
 		
+		//TEMPORARY Topic
 		var tempTitles: [Tournament] = []
 		let tournament1 = Tournament(title: "One Direction Songs", author: "Jace", size: 32, description: "This is a Test", optionTitlesList: ["Drag Me Down", "strong", "One Thing", "If I Could Fly", "Best Song Ever", "Midnight Memories", "Little Things", "What A Feeling", "Perfect", "Half A Heart", "No Control", "End of A Day", "You&I", "Stockholm Syndrome", "What Makes You Beautiful", "Rock Me", "Story of My Life", "More Than This", "They Don't Know About Us", "A.M", "Kiss You", "Where Do Broken Hearts Go", "Night Changes", "Olivia", "History", "Happily", "Live While You're Young", "18", "Infinity", "Love You Goodbye", "Steal My Girl", "Fireproof"])
 	
@@ -45,6 +46,13 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
 		tempTopics.append(trendingTopic1)
 		
 		trendingTopics = tempTopics
+		print(trendingTopics.count + 1)
+		
+	}
+	
+	override func viewWillLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		tableView.frame = view.bounds
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,20 +61,25 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		// Show Top Trending
-		if indexPath.row == 1 {
+		if indexPath.row < 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: TopTrendingTableViewCell.identifier, for: indexPath) as! TopTrendingTableViewCell
 			cell.configure(with: topTrending)
+			return cell
 		}
+		
 		//Show topics
 		let cell = tableView.dequeueReusableCell(withIdentifier: TrendingTableViewCell.identifier, for: indexPath) as! TrendingTableViewCell
-		cell.configure(with: trendingTopics[indexPath.row])
+		print(indexPath.row)
+		cell.configure(with: trendingTopics[indexPath.row - 1])
 		return cell
 	}
 	
-	
-		
-		
-		
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.row < 1 {
+			return 160.0
+		}
+		return 140.0
+	}
 }
 	
 

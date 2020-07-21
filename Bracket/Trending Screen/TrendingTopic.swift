@@ -11,6 +11,11 @@ class TrendingTopic {
 	var topic : String
 	var tournaments : [Tournament]
 	
+	init() {
+		self.topic = " "
+		self.tournaments = []
+	}
+	
 	init(topic: String, tournaments: [Tournament]) {
 		self.topic = topic
 		self.tournaments = tournaments

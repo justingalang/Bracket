@@ -22,6 +22,17 @@ class Tournament {
 	var roundIndex: Int
 	var nodeIndex: Int
 	
+	
+	init() {
+		self.title = ""
+		self.author = ""
+		self.size = 0
+		self.description = " "
+		self.optionTitlesList = []
+		self.roundIndex = 0
+		self.nodeIndex = 0
+	}
+	
 	/// Tournament Constructor
 	/// - Parameters:
 	///   - title: Title of the tournament

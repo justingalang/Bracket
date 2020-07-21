@@ -12,6 +12,7 @@ class TopTrendingTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var topTrendingImageView: UIImageView!
 	@IBOutlet weak var topTrendingTitle: UILabel!
+	@IBOutlet weak var topTrendingAuthor: UILabel!
 	
 	static let identifier = "TopTrendingTableViewCell"
 	
@@ -21,6 +22,8 @@ class TopTrendingTableViewCell: UITableViewCell {
 	
 	public func configure(with tournament: Tournament){
 		self.topTrendingTitle.text = tournament.title
+		self.topTrendingAuthor.text = tournament.author
+		self.topTrendingImageView.contentMode = .scaleAspectFill
 	}
 	
     override func awakeFromNib() {

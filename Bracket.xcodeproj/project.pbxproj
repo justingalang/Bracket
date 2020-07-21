@@ -113,8 +113,8 @@
 		6D0DD18624B95B1D00D3D8A5 /* Trending Screen */ = {
 			isa = PBXGroup;
 			children = (
-				6D0DD18424B95AD000D3D8A5 /* Trending.storyboard */,
 				6D0DD19924BD79F200D3D8A5 /* TrendingViewController.swift */,
+				6D0DD18424B95AD000D3D8A5 /* Trending.storyboard */,
 				6D53D46424C21754005ABF45 /* TopTrendingCell */,
 				6D53D46524C21771005ABF45 /* TrendingCells */,
 				6D78CDFE24C2CB2600FEAB24 /* TrendingTopic.swift */,
