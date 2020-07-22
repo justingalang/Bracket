@@ -18,6 +18,9 @@ class CreationTableViewController: UITableViewController{
 		Defaults.creationNumberOfOptions = 2
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnUpdateSize"), object: nil)
 		
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.estimatedRowHeight = 100.0
+		
     }
 	
 	@objc func updateOptionSize(){
@@ -29,19 +32,6 @@ class CreationTableViewController: UITableViewController{
         // #warning Incomplete implementation, return the number of
         return 3
     }
-	
-	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		if section == 0 {
-			return "Title"
-		} else if section == 1 {
-			return "Options"
-		}
-		return nil
-	}
-	
-	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		<#code#>
-	}
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
@@ -51,8 +41,7 @@ class CreationTableViewController: UITableViewController{
 		}
 		
 		return (Defaults.creationNumberOfOptions ?? 2)/2
-    }
-
+	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.section == 0 {
@@ -66,9 +55,9 @@ class CreationTableViewController: UITableViewController{
 		return cell
     }
 	
-	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 100.0
-	}
+//	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//		return 100.0
+//	}
 
 
     /*
