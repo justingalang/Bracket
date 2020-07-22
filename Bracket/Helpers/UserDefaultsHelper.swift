@@ -10,6 +10,5 @@ import UIKit
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    var username: DefaultsKey<String?> { return .init("username") }
-    var launchCount: DefaultsKey<Int> { return .init("launchCount", defaultValue: 0) }
+    var creationNumberOfOptions: DefaultsKey<Int?> { return .init("creationNumberOfOptions", defaultValue: 2) }
 }
