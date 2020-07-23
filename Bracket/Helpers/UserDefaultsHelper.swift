@@ -10,5 +10,11 @@ import UIKit
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    var creationNumberOfOptions: DefaultsKey<Int?> { return .init("creationNumberOfOptions", defaultValue: 2) }
+	//Tournament Creation
+	var creationTournamentTopic: DefaultsKey<String> { return .init("creationTournamentTopic", defaultValue: " ")}
+	var creationTournamentTitle: DefaultsKey<String> { return .init("creationTournamentTitle", defaultValue: " ")}
+    var creationTournamentSize: DefaultsKey<Int?> { return .init("creationNumberOfOptions", defaultValue: 2) }
+	var creationTournamentOptionsArray: DefaultsKey<[String]> { return .init("creationTournamentOptionsArray", defaultValue: [])}
+	
+	
 }

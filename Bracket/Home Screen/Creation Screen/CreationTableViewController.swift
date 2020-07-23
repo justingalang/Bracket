@@ -14,12 +14,12 @@ class CreationTableViewController: UITableViewController{
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		Defaults.creationNumberOfOptions = 2
-		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnUpdateSize"), object: nil)
+		Defaults.creationTournamentSize = 2
+		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
 		
 		tableView.rowHeight = UITableView.automaticDimension
-		tableView.estimatedRowHeight = 100.0
-		
+		tableView.estimatedRowHeight = 120.0
     }
 	
 	@objc func updateOptionSize(){
@@ -37,7 +37,7 @@ class CreationTableViewController: UITableViewController{
 			return 1
 		}
 		
-		return (Defaults.creationNumberOfOptions ?? 2)/2
+		return (Defaults.creationTournamentSize ?? 2)/2
 	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
-
+import SwiftyUserDefaults
 class Tournament {
 	
 	//var thumbnail: UIImageView?
 	var title: String
+	var topic: String?
 	var author: String
 	var size: Int
 	var description: String?
@@ -36,12 +37,14 @@ class Tournament {
 	/// Tournament Constructor
 	/// - Parameters:
 	///   - title: Title of the tournament
+	///   - topic: Topic of the tournament
 	///   - author: Name of the author
 	///   - size: Count of how many options
 	///   - description: Description of the tournament
 	///   - optionTitlesList: All titles of the option
-	init(/*thumbnail: UIImageView?,*/ title: String, author: String, size: Int, description: String?, optionTitlesList: [String]) {
+	init(/*thumbnail: UIImageView?,*/ title: String, topic: String?, author: String, size: Int, description: String?, optionTitlesList: [String]) {
 		self.title = title
+		self.topic = topic
 		self.author = author
 		self.size = size
 		self.description = description
