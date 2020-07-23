@@ -8,10 +8,9 @@
 
 import UIKit
 import SwiftyUserDefaults
+import iOSDropDown
+
 class CreationTableViewController: UITableViewController{
-	
-	
-	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +29,11 @@ class CreationTableViewController: UITableViewController{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if section == 0 {
-			return 1
-		} else if section == 2 {
+		if section == 1 {
 			return 1
 		}
 		
@@ -44,10 +41,7 @@ class CreationTableViewController: UITableViewController{
 	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.section == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: CreationTitleTableViewCell.identifier, for: indexPath) as! CreationTitleTableViewCell
-			return cell
-		} else if indexPath.section == 2 {
+		if indexPath.section == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: CreationTournamentSizeTableViewCell.identifier, for: indexPath) as! CreationTournamentSizeTableViewCell
 			return cell
 		}

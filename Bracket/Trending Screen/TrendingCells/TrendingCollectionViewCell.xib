@@ -23,12 +23,12 @@
                             <constraint firstAttribute="height" constant="100" id="eCi-Kp-iio"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tournament Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5l-Lu-uPV">
-                        <rect key="frame" x="0.0" y="109" width="167" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tournament Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5l-Lu-uPV">
+                        <rect key="frame" x="33.5" y="100" width="100" height="29"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="5Gx-5Q-sqG"/>
+                            <constraint firstAttribute="width" constant="100" id="U2c-vk-tgP"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -36,11 +36,11 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="i5l-Lu-uPV" secondAttribute="trailing" id="aom-YG-gc1"/>
+                <constraint firstItem="i5l-Lu-uPV" firstAttribute="centerX" secondItem="xJf-G7-S9t" secondAttribute="centerX" id="5Rh-UV-YHi"/>
+                <constraint firstItem="i5l-Lu-uPV" firstAttribute="top" secondItem="91l-VE-7XX" secondAttribute="bottom" id="IX5-Kt-ZGD"/>
                 <constraint firstItem="91l-VE-7XX" firstAttribute="top" secondItem="xJf-G7-S9t" secondAttribute="top" id="kL2-co-XMZ"/>
                 <constraint firstAttribute="bottom" secondItem="i5l-Lu-uPV" secondAttribute="bottom" id="sC6-w2-hmL"/>
                 <constraint firstItem="91l-VE-7XX" firstAttribute="centerX" secondItem="xJf-G7-S9t" secondAttribute="centerX" id="xjK-hL-c0L"/>
-                <constraint firstItem="i5l-Lu-uPV" firstAttribute="leading" secondItem="xJf-G7-S9t" secondAttribute="leading" id="yzL-JM-knm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="4Y0-sB-A95"/>
             <size key="customSize" width="167" height="129"/>

@@ -9,11 +9,6 @@
 /* Begin PBXBuildFile section */
 		54A3440D79987A0E25BCD292 /* Pods_Bracket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E564969FBFD6D4B4F10CF8 /* Pods_Bracket.framework */; };
 		6D07C5A424C16EFA00C6775D /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0DD19924BD79F200D3D8A5 /* TrendingViewController.swift */; };
-		6D07C5A524C16EFE00C6775D /* NodeCreationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D85B1B72482220900E1504D /* NodeCreationCell.swift */; };
-		6D07C5A624C16EFE00C6775D /* CreationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D85B1B52480C59E00E1504D /* CreationDetailViewController.swift */; };
-		6D07C5A724C16EFE00C6775D /* OptionCreationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77A12E248A061F00FE61D0 /* OptionCreationPageViewController.swift */; };
-		6D07C5A824C16EFE00C6775D /* CreationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5506E52496C7B7005B995F /* CreationNavigationController.swift */; };
-		6D07C5A924C16EFE00C6775D /* OptionCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D77A130248A0FF300FE61D0 /* OptionCreationViewController.swift */; };
 		6D07C5AA24C16F0300C6775D /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D85B1AA2468E9C800E1504D /* PreviewCell.swift */; };
 		6D07C5AB24C16F0300C6775D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D85B1A82468E81600E1504D /* PreviewViewController.swift */; };
 		6D07C5AC24C16F0300C6775D /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D8211244BCC1C0029B823 /* HomePageViewController.swift */; };
@@ -43,6 +38,9 @@
 		6D765F8424C7801D00636526 /* CreationOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D765F8324C7801D00636526 /* CreationOptionTableViewCell.swift */; };
 		6D765F8624C7803C00636526 /* CreationTournamentSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D765F8524C7803C00636526 /* CreationTournamentSizeTableViewCell.swift */; };
 		6D765F8824C7810C00636526 /* CreationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D765F8724C7810C00636526 /* CreationTableViewController.swift */; };
+		6D765F8A24C90F8E00636526 /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D765F8924C90F8E00636526 /* iOSDropDown.framework */; };
+		6D765F9024C9148500636526 /* CreationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D765F8F24C9148500636526 /* CreationDetailViewController.swift */; };
+		6D765F9224C9198100636526 /* CreationNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D765F9124C9198000636526 /* CreationNavigationController.swift */; };
 		6D78CDFF24C2CB2600FEAB24 /* TrendingTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D78CDFE24C2CB2600FEAB24 /* TrendingTopic.swift */; };
 		6D7EFE312419D9D0002D759C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D7EFE302419D9D0002D759C /* Assets.xcassets */; };
 		6D7EFE342419D9D0002D759C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D7EFE322419D9D0002D759C /* LaunchScreen.storyboard */; };
@@ -72,13 +70,13 @@
 		6D53D46124C1E398005ABF45 /* TrendingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingTableViewCell.xib; sourceTree = "<group>"; };
 		6D53D46A24C21E01005ABF45 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		6D53D46B24C21E01005ABF45 /* TrendingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrendingCollectionViewCell.xib; sourceTree = "<group>"; };
-		6D5506E52496C7B7005B995F /* CreationNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreationNavigationController.swift; path = ../CreationNavigationController.swift; sourceTree = "<group>"; };
 		6D765F8124C7800500636526 /* CreationTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationTitleTableViewCell.swift; sourceTree = "<group>"; };
 		6D765F8324C7801D00636526 /* CreationOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationOptionTableViewCell.swift; sourceTree = "<group>"; };
 		6D765F8524C7803C00636526 /* CreationTournamentSizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationTournamentSizeTableViewCell.swift; sourceTree = "<group>"; };
 		6D765F8724C7810C00636526 /* CreationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationTableViewController.swift; sourceTree = "<group>"; };
-		6D77A12E248A061F00FE61D0 /* OptionCreationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionCreationPageViewController.swift; path = ../OptionCreationPageViewController.swift; sourceTree = "<group>"; };
-		6D77A130248A0FF300FE61D0 /* OptionCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionCreationViewController.swift; path = ../OptionCreationViewController.swift; sourceTree = "<group>"; };
+		6D765F8924C90F8E00636526 /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D765F8F24C9148500636526 /* CreationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationDetailViewController.swift; sourceTree = "<group>"; };
+		6D765F9124C9198000636526 /* CreationNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationNavigationController.swift; sourceTree = "<group>"; };
 		6D78CDFE24C2CB2600FEAB24 /* TrendingTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTopic.swift; sourceTree = "<group>"; };
 		6D7EFE242419D9CE002D759C /* Bracket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bracket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D7EFE302419D9D0002D759C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,8 +87,6 @@
 		6D85B1AC246E5C8700E1504D /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		6D85B1AE246E5F1300E1504D /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		6D85B1B22480A2D400E1504D /* Creation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Creation.storyboard; sourceTree = "<group>"; };
-		6D85B1B52480C59E00E1504D /* CreationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreationDetailViewController.swift; path = ../CreationDetailViewController.swift; sourceTree = "<group>"; };
-		6D85B1B72482220900E1504D /* NodeCreationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeCreationCell.swift; path = ../NodeCreationCell.swift; sourceTree = "<group>"; };
 		6D8D8211244BCC1C0029B823 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		6DB7745C246213B1002B92C4 /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
 		C9E564969FBFD6D4B4F10CF8 /* Pods_Bracket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bracket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D765F8A24C90F8E00636526 /* iOSDropDown.framework in Frameworks */,
 				54A3440D79987A0E25BCD292 /* Pods_Bracket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +108,7 @@
 		295185DA5C5A2F4BBFE4116D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D765F8924C90F8E00636526 /* iOSDropDown.framework */,
 				C9E564969FBFD6D4B4F10CF8 /* Pods_Bracket.framework */,
 			);
 			name = Frameworks;
@@ -119,8 +117,8 @@
 		6D0DD18624B95B1D00D3D8A5 /* Trending Screen */ = {
 			isa = PBXGroup;
 			children = (
-				6D0DD19924BD79F200D3D8A5 /* TrendingViewController.swift */,
 				6D0DD18424B95AD000D3D8A5 /* Trending.storyboard */,
+				6D0DD19924BD79F200D3D8A5 /* TrendingViewController.swift */,
 				6D53D46424C21754005ABF45 /* TopTrendingCell */,
 				6D53D46524C21771005ABF45 /* TrendingCells */,
 				6D78CDFE24C2CB2600FEAB24 /* TrendingTopic.swift */,
@@ -193,18 +191,6 @@
 			path = TrendingCells;
 			sourceTree = "<group>";
 		};
-		6D765F7F24C77FAC00636526 /* Scrap */ = {
-			isa = PBXGroup;
-			children = (
-				6D85B1B72482220900E1504D /* NodeCreationCell.swift */,
-				6D85B1B52480C59E00E1504D /* CreationDetailViewController.swift */,
-				6D77A12E248A061F00FE61D0 /* OptionCreationPageViewController.swift */,
-				6D5506E52496C7B7005B995F /* CreationNavigationController.swift */,
-				6D77A130248A0FF300FE61D0 /* OptionCreationViewController.swift */,
-			);
-			path = Scrap;
-			sourceTree = "<group>";
-		};
 		6D765F8024C77FBD00636526 /* Option Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,8 +225,8 @@
 				6D7EFE322419D9D0002D759C /* LaunchScreen.storyboard */,
 				6D0DD19024B95D3E00D3D8A5 /* Main.storyboard */,
 				6DB7745F24623EC1002B92C4 /* Game Screen */,
-				6D0DD18624B95B1D00D3D8A5 /* Trending Screen */,
 				6DB7746124623EF8002B92C4 /* Home Screen */,
+				6D0DD18624B95B1D00D3D8A5 /* Trending Screen */,
 				6D0DD18F24B95C7100D3D8A5 /* Social Screen */,
 				6D0DD18E24B95C6000D3D8A5 /* Friends Screen */,
 				6D0DD18D24B95C4700D3D8A5 /* Personal Screen */,
@@ -266,8 +252,9 @@
 			children = (
 				6D85B1B22480A2D400E1504D /* Creation.storyboard */,
 				6D765F8724C7810C00636526 /* CreationTableViewController.swift */,
+				6D765F8F24C9148500636526 /* CreationDetailViewController.swift */,
+				6D765F9124C9198000636526 /* CreationNavigationController.swift */,
 				6D765F8024C77FBD00636526 /* Option Detail */,
-				6D765F7F24C77FAC00636526 /* Scrap */,
 			);
 			path = "Creation Screen";
 			sourceTree = "<group>";
@@ -446,14 +433,11 @@
 				6D765F8824C7810C00636526 /* CreationTableViewController.swift in Sources */,
 				6D07C5AC24C16F0300C6775D /* HomePageViewController.swift in Sources */,
 				6D765F8224C7800500636526 /* CreationTitleTableViewCell.swift in Sources */,
-				6D07C5A524C16EFE00C6775D /* NodeCreationCell.swift in Sources */,
-				6D07C5A624C16EFE00C6775D /* CreationDetailViewController.swift in Sources */,
-				6D07C5A724C16EFE00C6775D /* OptionCreationPageViewController.swift in Sources */,
-				6D07C5A824C16EFE00C6775D /* CreationNavigationController.swift in Sources */,
 				6D53D46224C1E398005ABF45 /* TrendingTableViewCell.swift in Sources */,
-				6D07C5A924C16EFE00C6775D /* OptionCreationViewController.swift in Sources */,
 				6D765F8424C7801D00636526 /* CreationOptionTableViewCell.swift in Sources */,
 				6D07C5A424C16EFA00C6775D /* TrendingViewController.swift in Sources */,
+				6D765F9224C9198100636526 /* CreationNavigationController.swift in Sources */,
+				6D765F9024C9148500636526 /* CreationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

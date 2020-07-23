@@ -22,6 +22,8 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		setupNavBar()
+		
 		view.addSubview(tableView)
 		tableView.delegate = self
 		tableView.dataSource = self
@@ -53,6 +55,14 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
 	override func viewWillLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		tableView.frame = view.bounds
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.estimatedRowHeight = 130.0
+		tableView.separatorColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
+		
+	}
+	
+	func setupNavBar() {
+		navigationController?.navigationBar.prefersLargeTitles = true
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,7 +88,7 @@ class TrendingViewController: UIViewController, UITableViewDelegate, UITableView
 		if indexPath.row < 1 {
 			return 160.0
 		}
-		return 140.0
+		return 150.0
 	}
 }
 	

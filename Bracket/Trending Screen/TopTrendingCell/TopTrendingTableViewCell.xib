@@ -9,42 +9,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTrendingTableViewCell" rowHeight="177" id="KGk-i7-Jjw" customClass="TopTrendingTableViewCell" customModule="Bracket" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="426" height="177"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopTrendingTableViewCell" rowHeight="144" id="KGk-i7-Jjw" customClass="TopTrendingTableViewCell" customModule="Bracket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="426" height="177"/>
+                <rect key="frame" x="0.0" y="0.0" width="401" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Penguin" translatesAutoresizingMaskIntoConstraints="NO" id="yqi-Gt-q0o">
-                        <rect key="frame" x="15" y="15" width="150" height="150"/>
+                        <rect key="frame" x="15" y="15" width="120" height="120"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="150" id="8br-BZ-QaS"/>
-                            <constraint firstAttribute="height" constant="150" id="EXz-j5-eS1"/>
+                            <constraint firstAttribute="width" constant="120" id="8br-BZ-QaS"/>
+                            <constraint firstAttribute="height" constant="120" id="EXz-j5-eS1"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2F-cu-UJU">
-                        <rect key="frame" x="180" y="15" width="246" height="150"/>
+                        <rect key="frame" x="150" y="15" width="251" height="120"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No. 1 Trending" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Qf-HDL">
-                                <rect key="frame" x="0.0" y="33" width="223.5" height="44.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By: Author" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zR2-Lh-GJ2">
-                                <rect key="frame" x="0.0" y="73.5" width="89.5" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By: Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zR2-Lh-GJ2">
+                                <rect key="frame" x="0.0" y="65" width="243" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No. 1 Trending" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-Qf-HDL">
+                                <rect key="frame" x="0.0" y="37" width="243" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="1GA-b6-ouw"/>
-                            <constraint firstAttribute="height" constant="150" id="5dM-Nj-fi0"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="1GA-b6-ouw"/>
+                            <constraint firstAttribute="height" constant="120" id="5dM-Nj-fi0"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -64,7 +64,7 @@
                 <outlet property="topTrendingImageView" destination="yqi-Gt-q0o" id="weU-7f-2io"/>
                 <outlet property="topTrendingTitle" destination="jEV-Qf-HDL" id="QbK-Dz-ebF"/>
             </connections>
-            <point key="canvasLocation" x="161" y="174"/>
+            <point key="canvasLocation" x="26.811594202898554" y="162.05357142857142"/>
         </tableViewCell>
     </objects>
     <resources>
