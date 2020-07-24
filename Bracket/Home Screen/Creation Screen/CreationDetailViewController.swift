@@ -31,10 +31,8 @@ class CreationDetailViewController: UIViewController {
 	}
 		
 	@IBAction func didPressNext(_ sender: Any) {
-		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
 		print("Did PRESS NEXT")
 		guard let title = tournamentTitle.text, titleIsValid(title: title) else {
-			print("INSIDE ERROR")
 			let alert = UIAlertController(title: "Tournament Title", message: "Please make sure your tournament's title is between 4 to 25 characters" , preferredStyle: .alert)
 			let okAction = UIAlertAction(title: "Ok", style: .default)
             alert.addAction(okAction)
@@ -42,15 +40,13 @@ class CreationDetailViewController: UIViewController {
 			return
 		}
 		Defaults.creationTournamentTopic = topicSelector.text ?? " "
-		Defaults.creationTournamentTitle = topicSelector.text!
+		Defaults.creationTournamentTitle = tournamentTitle.text!
 		Defaults.creationTournamentSize = Int(tournamentSize.text!)
-//		let options = Defaults.creationTournamentOptionsArray
-//		if optionsIsValid(options: options, size: Defaults.creationTournamentSize!) {
-//			let alert = UIAlertController(title: "Options", message: "Please make sure your tournament's options are all filled out properly" , preferredStyle: .alert)
-//			let okAction = UIAlertAction(title: "Ok", style: .default)
-//            alert.addAction(okAction)
-//			present(alert, animated: true)
-//			return
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
+		print(Defaults.creationTournamentTopic)
+		print(Defaults.creationTournamentTitle)
+		print("\(Defaults.creationTournamentSize ?? 0)")
+		print(Defaults.creationTournamentOptionsArray)
 	}
 	
 	func titleIsValid(title: String) -> Bool {

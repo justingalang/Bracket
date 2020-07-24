@@ -10,23 +10,38 @@ import UIKit
 import SwiftyUserDefaults
 import iOSDropDown
 
-class CreationTableViewController: UITableViewController, UITextFieldDelegate{
+class CreationTableViewController: UITableViewController{
 	
 	
-	var allCellsText = [String]()
-	
+	var options = [String]()
 	override func viewDidLoad() {
         super.viewDidLoad()
 		Defaults.creationTournamentSize = 2
+		NotificationCenter.default.addObserver(self, selector: #selector(updateSetOptions), name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
-//		NotificationCenter.default.addObserver(self, selector: #selector(updateSetOptions), name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 120.0
     }
 	
 	@objc func updateOptionSize(){
 		tableView.reloadData()
+	}
+	
+	@objc func updateSetOptions() {
+		tableView.visibleCells.forEach {
+			guard let cell = $0 as? CreationOptionTableViewCell, let optionOneText = cell.optionOneTextField.text, let optionTwoText = cell.optionTwoTextField.text else { return }
+			if optionOneText == "" || optionTwoText == "" {
+				let alert = UIAlertController(title: "Options", message: "Please make sure all options in your tournament are filled out." , preferredStyle: .alert)
+				let okAction = UIAlertAction(title: "Ok", style: .default)
+				alert.addAction(okAction)
+				present(alert, animated: true)
+				return
+			}
+			options.append(optionOneText)
+			options.append(optionTwoText)
+		}
+		Defaults.creationTournamentOptionsArray = options
 	}
 
     // MARK: - Table view data source
@@ -40,9 +55,34 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 		if section == 1 {
 			return 1
 		}
-		
 		return (Defaults.creationTournamentSize ?? 2)/2
 	}
+//******************************************************************
+//***************** SECTION HEADER *********************************
+//	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//		if section == 0 { return 50 }
+//		return 0
+//    }
+//
+//	override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//		if section == 0 {
+//			let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+//			headerView.backgroundColor = UIColor.white
+//
+//			let label = UILabel()
+//			label.frame = CGRect.init(x: 10, y: 5, width: headerView.frame.width-10, height: headerView.frame.height-10)
+//			label.text = "Round One"
+//			label.font = UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.regular)
+//			label.textColor = UIColor.black
+//
+//			headerView.addSubview(label)
+//
+//			return headerView
+//		}
+//
+//		return nil
+//    }
+//********************************************************************
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.section == 1 {
@@ -50,55 +90,7 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 			return cell
 		}
 		let cell = tableView.dequeueReusableCell(withIdentifier: CreationOptionTableViewCell.identifier, for: indexPath) as! CreationOptionTableViewCell
-		cell.optionOneTextField.delegate = self
-		cell.optionTwoTextField.delegate = self
-		cell.optionOneTextField.text = "Test1"
-		cell.optionTwoTextField.text = "Test2"
-
 		return cell
     }
 	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-		allCellsText.append(textField.text!)
-        print(allCellsText)
-	}
-	
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
