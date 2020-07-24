@@ -19,6 +19,8 @@ class CreationDetailViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(CreationDetailViewController.didPressNext(_:)))
+		
 		topicSelector.optionArray = ["Music", "Movie", "Book", "Game", "Celeb", "Other","None"]
 		NotificationCenter.default.addObserver(self, selector: #selector(updateTournamentSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateTournamentSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
@@ -29,6 +31,7 @@ class CreationDetailViewController: UIViewController {
 	}
 		
 	@IBAction func didPressNext(_ sender: Any) {
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
 		print("Did PRESS NEXT")
 		guard let title = tournamentTitle.text, titleIsValid(title: title) else {
 			print("INSIDE ERROR")

@@ -10,14 +10,17 @@ import UIKit
 import SwiftyUserDefaults
 import iOSDropDown
 
-class CreationTableViewController: UITableViewController{
+class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 	
-    override func viewDidLoad() {
+	
+	var allCellsText = [String]()
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 		Defaults.creationTournamentSize = 2
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
-		
+//		NotificationCenter.default.addObserver(self, selector: #selector(updateSetOptions), name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 120.0
     }
@@ -25,6 +28,7 @@ class CreationTableViewController: UITableViewController{
 	@objc func updateOptionSize(){
 		tableView.reloadData()
 	}
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,13 +50,19 @@ class CreationTableViewController: UITableViewController{
 			return cell
 		}
 		let cell = tableView.dequeueReusableCell(withIdentifier: CreationOptionTableViewCell.identifier, for: indexPath) as! CreationOptionTableViewCell
+		cell.optionOneTextField.delegate = self
+		cell.optionTwoTextField.delegate = self
+		cell.optionOneTextField.text = "Test1"
+		cell.optionTwoTextField.text = "Test2"
+
 		return cell
     }
 	
-//	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//		return 100.0
-//	}
-
+	func textFieldDidEndEditing(_ textField: UITextField) {
+		allCellsText.append(textField.text!)
+        print(allCellsText)
+	}
+	
 
     /*
     // Override to support editing the table view.
