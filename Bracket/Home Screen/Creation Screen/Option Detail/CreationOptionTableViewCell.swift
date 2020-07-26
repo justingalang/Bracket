@@ -25,5 +25,12 @@ class CreationOptionTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+	
+	func load(viewModel: OptionViewModel) {
+		optionOneTextField.text = viewModel.text
+		optionOneTextField.delegate = viewModel
+		
+		optionTwoTextField.text = viewModel.text
+		optionTwoTextField.delegate = viewModel
+	}
 }

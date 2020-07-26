@@ -15,7 +15,7 @@ class CreationDetailViewController: UIViewController {
 	@IBOutlet weak var tournamentSize: UILabel!
 	@IBOutlet weak var topicSelector: DropDown!
 	@IBOutlet weak var tournamentTitle: UITextField!
-	let TITLE_CHARACHTER_COUNT_LIMIT = 25
+	let TITLE_CHARACTER_COUNT_LIMIT = 25
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
