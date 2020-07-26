@@ -1,0 +1,6 @@
+framework module Pods_Bracket {
+  umbrella header "Pods-Bracket-umbrella.h"
+
+  export *
+  module * { export * }
+}
