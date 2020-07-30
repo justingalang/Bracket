@@ -10,9 +10,16 @@ import UIKit
 
 class PreviewViewController: UIViewController {
 
+	@IBOutlet weak var tournamentTopic: UILabel!
+	@IBOutlet weak var tournamentSize: UILabel!
+	@IBOutlet weak var tournamentCompletionCount: UILabel!
+	@IBOutlet weak var tournamentDescription: UITextView!
+	@IBOutlet weak var tournamentFriendsCollectionView: UICollectionView!
+	@IBOutlet weak var tournamentImage: UIImageView!
 	@IBOutlet weak var tournamentTitle: UILabel!
 	@IBOutlet weak var tournamentAuthor: UILabel!
 	@IBOutlet weak var previewView: UITableView!
+
 	//@IBOutlet weak var backButton: UIBarButtonItem!
 	@IBOutlet weak var startButton: UIButton!
 	
@@ -20,26 +27,34 @@ class PreviewViewController: UIViewController {
 	struct Storyboard {
 		static let previewToTournament = "PreviewToTournament"
 	}
-	struct Cell {
-		static let previewCell = "PreviewCell"
-	}
 	
 	var tournament: Tournament? 
-	
+	var friendsCompleted = [String]()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		friendsCompleted = ["BKP", "Elena P", "Victor W.", "Jaden G"]
+		tournamentFriendsCollectionView.register(UINib(nibName: "FriendsCompletedCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: FriendsCompletedCollectionViewCell.identifier)
+
 		setUI()
+		
 			
         // Do any additional setup after loading the view.
     }
     
 	func setUI() {
-		tournamentTitle.text = tournament?.title
+		self.title = tournament?.title
+		tournamentSize.text = ("\(tournament?.size ?? 2)")
+		tournamentTopic.text = tournament?.topic
 		tournamentAuthor.text = tournament?.author
-		startButton.layer.cornerRadius = 10
-		startButton.layer.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
+		tournamentDescription.text = "This is a test description to see how a scroll view works. bladi bladi blah blah blah blah. I hope this everything will run okay. One day, Ill finish that book and I will make a really successful app."
+		
+//		startButton.layer.cornerRadius = 10
+//		startButton.layer.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
 		previewView.delegate = self
 		previewView.dataSource = self
+		tournamentFriendsCollectionView.delegate = self
+		tournamentFriendsCollectionView.dataSource = self
 	}
 	
 	func setTournamentTitle() {
@@ -77,7 +92,7 @@ extension PreviewViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let previewNode = tournament?.rounds[0][indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: Cell.previewCell) as! PreviewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: PreviewCell.identifier) as! PreviewCell
 		cell.setOptions(node: previewNode!)
 		return cell
 	}
@@ -85,6 +100,23 @@ extension PreviewViewController: UITableViewDataSource, UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 50
 	}
+}
 
+extension PreviewViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		friendsCompleted.count
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FriendsCompletedCollectionViewCell.identifier, for: indexPath) as! FriendsCompletedCollectionViewCell
+		cell.configure(with: friendsCompleted[indexPath.row])
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return CGSize(width: 500, height: 500)
+	}
 	
 }
+

@@ -12,6 +12,10 @@ import iOSDropDown
 
 class CreationDetailViewController: UIViewController {
 	
+	struct Storyboard {
+		static let detailToPublish = "DetailToPublish"
+	}
+	
 	@IBOutlet weak var tournamentSize: UILabel!
 	@IBOutlet weak var topicSelector: DropDown!
 	@IBOutlet weak var tournamentTitle: UITextField!
@@ -20,10 +24,18 @@ class CreationDetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(CreationDetailViewController.didPressNext(_:)))
-		
+
 		topicSelector.optionArray = ["Music", "Movie", "Book", "Game", "Celeb", "Other","None"]
 		NotificationCenter.default.addObserver(self, selector: #selector(updateTournamentSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateTournamentSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == Storyboard.detailToPublish {
+			let navigationController = segue.destination as! UINavigationController
+			_ = navigationController.topViewController as! CreationPublishViewController
+			//let destVC = CreationPublishViewController()
+		}
 	}
 	
 	@objc func updateTournamentSize() {
@@ -47,6 +59,8 @@ class CreationDetailViewController: UIViewController {
 		print(Defaults.creationTournamentTitle)
 		print("\(Defaults.creationTournamentSize ?? 0)")
 		print(Defaults.creationTournamentOptionsArray)
+		
+		performSegue(withIdentifier: Storyboard.detailToPublish, sender: nil)
 	}
 	
 	func titleIsValid(title: String) -> Bool {
@@ -63,6 +77,8 @@ class CreationDetailViewController: UIViewController {
 		}
 		return true
 	}
+	
+	@IBAction func unwindToCreationDetail(_ sender: UIStoryboardSegue) {}
 	
 	
 	

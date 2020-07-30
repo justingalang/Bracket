@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "Penguin.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Penguin-1.jpeg",
+      "filename" : "Turtle.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },

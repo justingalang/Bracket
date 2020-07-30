@@ -9,14 +9,16 @@
 import UIKit
 
 class TournamentOptionCell: UITableViewCell {
-		@IBOutlet weak var tournamentTitle: UILabel!
-		@IBOutlet weak var tournamentAuthor: UILabel!
+	static let identifier = "TournamentOptionCell"
+	
+	@IBOutlet weak var tournamentTitle: UILabel!
+	@IBOutlet weak var tournamentAuthor: UILabel!
+	
+	func setTournament(tournament: Tournament) {
+		tournamentTitle.text = tournament.title
+		tournamentAuthor.text = tournament.author
 		
-		func setTournament(tournament: Tournament) {
-			tournamentTitle.text = tournament.title
-			tournamentAuthor.text = tournament.author
-			
-		}
+	}
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

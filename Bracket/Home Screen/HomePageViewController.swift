@@ -18,10 +18,6 @@ class HomePageViewController: UIViewController {
 		static let homeToCreation = "HomeToCreation"
 	}
 	
-	struct Cell {
-		static let tournamentOption = "TournamentOption"
-	}
-	
 	var sampleTournamentTitles : [Tournament] = []
 	let defaults = UserDefaults.standard
 	
@@ -85,10 +81,6 @@ class HomePageViewController: UIViewController {
 			let destVC = navigationController.topViewController as! PreviewViewController
 			destVC.tournament = sender as? Tournament
 		}
-		
-		if segue.destination is CreationNavigationController {
-			defaults.set(8, forKey: "newTournamentSize")
-		}
 	}
 	
 	
@@ -111,7 +103,7 @@ extension HomePageViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let tournamentOption = sampleTournamentTitles[indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: Cell.tournamentOption) as! TournamentOptionCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: TournamentOptionCell.identifier) as! TournamentOptionCell
 		cell.setTournament(tournament: tournamentOption)
 		return cell
 	}

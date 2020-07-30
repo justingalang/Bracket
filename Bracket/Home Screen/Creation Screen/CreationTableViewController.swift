@@ -10,49 +10,79 @@ import UIKit
 import SwiftyUserDefaults
 import iOSDropDown
 
-class CreationTableViewController: UITableViewController{
+class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 	
-	var options = [String]()
+	var options = Array(repeating:
+	String(), count: (Defaults.creationTournamentSize ?? 2))
+	var currentRow = Int()
 	private let viewModel = OptionListViewModel()
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		Defaults.creationTournamentSize = 2
-		tableView.delegate = viewModel
-		tableView.dataSource = viewModel
-		viewModel.didNotificationReceived = { [weak self] in
-			self?.tableView.reloadData()
-		}
+		
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(updateSetOptions), name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
-		NotificationCenter.default.addObserver(viewModel, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
-		NotificationCenter.default.addObserver(viewModel, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "reloadTable"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 120.0
     }
 	
 	@objc func updateOptionSize(){
+		var newOptions = Array(repeating:
+		String(), count: (Defaults.creationTournamentSize ?? 2))
+		for (index, option) in options.enumerated() {
+			if index < newOptions.count {
+				newOptions[index] = option
+			}
+		}
+		
+		options = newOptions
+		print(options)
 		tableView.reloadData()
+		
 	}
 	
 	@objc func updateSetOptions() {
-		Defaults.creationTournamentOptionsArray = viewModel.rawData
+		Defaults.creationTournamentOptionsArray = options
 	}
 
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of
-//        return 2
-//    }
-//
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		if section == 1 {
-//			return 1
-//		}
-//		return (Defaults.creationTournamentSize ?? 2)/2
-//	}
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of
+        return 2
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if section == 1 {
+			return 1
+		}
+		return (Defaults.creationTournamentSize ?? 2)/2
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if indexPath.section == 1 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: CreationTournamentSizeTableViewCell.identifier, for: indexPath) as! CreationTournamentSizeTableViewCell
+			return cell
+		}
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: CreationOptionTableViewCell.identifier, for: indexPath) as! CreationOptionTableViewCell
+		cell.optionOneTextField.text = options[2*indexPath.row]
+		cell.optionTwoTextField.text = options[2*indexPath.row + 1]
+		cell.optionOneTextField.tag = 2*indexPath.row + 1
+		cell.optionTwoTextField.tag = 2*indexPath.row + 2
+		cell.optionOneTextField.delegate = self
+		cell.optionTwoTextField.delegate = self
+		return cell
+	}
+	
+	func textFieldDidChangeSelection(_ textField: UITextField) {
+		print(options)
+		print(textField.tag)
+		options[textField.tag - 1] = textField.text ?? ""
+	}
 //******************************************************************
 //***************** SECTION HEADER *********************************
 //	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -80,13 +110,6 @@ class CreationTableViewController: UITableViewController{
 //    }
 //********************************************************************
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		if indexPath.section == 1 {
-//			let cell = tableView.dequeueReusableCell(withIdentifier: CreationTournamentSizeTableViewCell.identifier, for: indexPath) as! CreationTournamentSizeTableViewCell
-//			return cell
-//		}
-//		let cell = tableView.dequeueReusableCell(withIdentifier: CreationOptionTableViewCell.identifier, for: indexPath) as! CreationOptionTableViewCell
-//		return cell
-//    }
+   
 	
 }
