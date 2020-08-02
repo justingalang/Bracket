@@ -44,6 +44,7 @@ class CreationDetailViewController: UIViewController {
 		
 	@IBAction func didPressNext(_ sender: Any) {
 		print("Did PRESS NEXT")
+		//Tournament Title
 		guard let title = tournamentTitle.text, titleIsValid(title: title) else {
 			let alert = UIAlertController(title: "Tournament Title", message: "Please make sure your tournament's title is between 4 to 25 characters" , preferredStyle: .alert)
 			let okAction = UIAlertAction(title: "Ok", style: .default)
@@ -51,6 +52,22 @@ class CreationDetailViewController: UIViewController {
 			present(alert, animated: true)
 			return
 		}
+		//Tournament Topic
+		guard let topic = topicSelector.text, topicIsValid(topic: topic) else {
+			let alert = UIAlertController(title: "Tournament Topic", message: "Please make sure you've selected a topic" , preferredStyle: .alert)
+			let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+			present(alert, animated: true)
+			return
+		}
+		//Tournament options
+//		if !(optionsAreValid(options: Defaults.creationTournamentOptionsArray)) {
+//			let alert = UIAlertController(title: "Tournament Options", message: "You have not filled out all your options" , preferredStyle: .alert)
+//			let okAction = UIAlertAction(title: "Ok", style: .default)
+//            alert.addAction(okAction)
+//			present(alert, animated: true)
+//			return
+//		}
 		Defaults.creationTournamentTopic = topicSelector.text ?? " "
 		Defaults.creationTournamentTitle = tournamentTitle.text!
 		Defaults.creationTournamentSize = Int(tournamentSize.text!)
@@ -71,12 +88,26 @@ class CreationDetailViewController: UIViewController {
 		return true
 	}
 	
-	func optionsIsValid(options: [String], size: Int) -> Bool {
-		if options.count != size {
+	func topicIsValid(topic: String) -> Bool {
+		//check if topic is not blank AND is one of the selected
+		if topic == "" || topic == "Topic" {
 			return false
 		}
 		return true
 	}
+	func optionsAreValid(options: [String]) -> Bool {
+		//check if each element of the array AND the array is the same count as the size
+		for option in options {
+			if option == "" {
+				return false
+			}
+		}
+		if options.count != Defaults.creationTournamentSize {
+			return false
+		}
+		return true
+	}
+	
 	
 	@IBAction func unwindToCreationDetail(_ sender: UIStoryboardSegue) {}
 	

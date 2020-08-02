@@ -8,29 +8,53 @@
 
 import UIKit
 import SwiftyUserDefaults
-class CreationPublishViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class CreationPublishViewController: UIViewController {
 	
-	@IBOutlet weak var tournamentTitle: UILabel!
+	//@IBOutlet weak var tournamentTitle: UILabel!
+	@IBOutlet weak var topic: UILabel!
 	@IBOutlet weak var author: UILabel!
+	@IBOutlet weak var authorImage: UIImageView!
+	@IBOutlet weak var previewSize: UILabel!
 	@IBOutlet weak var optionPreview: UITableView!
 	
 	@IBOutlet weak var tournamentPicture: UIImageView!
-	@IBOutlet weak var descriptionTextField: UITextField!
+	@IBOutlet weak var descriptionTextView: UITextView!
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		self.tournamentTitle.text = Defaults.creationTournamentTitle
-
-		optionPreview.delegate = self
-		optionPreview.dataSource = self
-		optionPreview.rowHeight = UITableView.automaticDimension
-		optionPreview.estimatedRowHeight = 100.0
+		setUI()
 		
 
         // Do any additional setup after loading the view.
     }
-    
+	
+	func setUI() {
+		self.title = Defaults.creationTournamentTitle
+		if Defaults.creationTournamentTopic == "" || Defaults.creationTournamentTopic == "None" {
+			topic.text = ""
+		} else {
+			topic.text = Defaults.creationTournamentTopic
+		}
+		previewSize.text = "Tournament Preview: \(Defaults.creationTournamentSize ?? 0)"
+		
+		descriptionTextView.delegate = self
+		descriptionTextView.text = "Write a description..."
+		descriptionTextView.textColor = .lightGray
+		optionPreview.delegate = self
+		optionPreview.dataSource = self
+		optionPreview.rowHeight = UITableView.automaticDimension
+		optionPreview.estimatedRowHeight = 100.0
+	}
+	
+	@IBAction func didPressPublish(_ sender: Any) {
+		
+	}
+	
+	
+}
+
+extension CreationPublishViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (Defaults.creationTournamentSize ?? 2)/2
 	}
@@ -41,17 +65,29 @@ class CreationPublishViewController: UIViewController, UITableViewDelegate, UITa
 		return cell
 	}
 	
-	
-	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 50
+	}
+}
 
-    /*
-    // MARK: - Navigation
+extension CreationPublishViewController: UITextViewDelegate {
+	func textViewDidBeginEditing(_ textView: UITextView)
+	{
+		if (textView.text == "Write a description..." && textView.textColor == .lightGray)
+		{
+			textView.text = ""
+			textView.textColor = .black
+		}
+		textView.becomeFirstResponder() //Optional
+	}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	func textViewDidEndEditing(_ textView: UITextView)
+	{
+		if (textView.text == "")
+		{
+			textView.text = "Write a description..."
+			textView.textColor = .lightGray
+		}
+		textView.resignFirstResponder()
+	}
 }

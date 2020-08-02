@@ -44,22 +44,22 @@ class PreviewViewController: UIViewController {
     
 	func setUI() {
 		self.title = tournament?.title
-		tournamentSize.text = ("\(tournament?.size ?? 2)")
+		tournamentSize.text = ("Tournament Preview: \(tournament?.size ?? 2)")
 		tournamentTopic.text = tournament?.topic
 		tournamentAuthor.text = tournament?.author
 		tournamentDescription.text = "This is a test description to see how a scroll view works. bladi bladi blah blah blah blah. I hope this everything will run okay. One day, Ill finish that book and I will make a really successful app."
 		
-//		startButton.layer.cornerRadius = 10
-//		startButton.layer.backgroundColor = #colorLiteral(red: 0.4620226622, green: 0.8382837176, blue: 1, alpha: 1)
+		startButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+		startButton.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+		startButton.layer.shadowOpacity = 1.0
+		startButton.layer.shadowRadius = 10.0
+		startButton.layer.masksToBounds = false
+		startButton.layer.cornerRadius = 6.0
+
 		previewView.delegate = self
 		previewView.dataSource = self
 		tournamentFriendsCollectionView.delegate = self
 		tournamentFriendsCollectionView.dataSource = self
-	}
-	
-	func setTournamentTitle() {
-		let navController = navigationController!
-		navController.title = "test"
 	}
 	
 	@IBAction func didTapOnBackButton(_ sender: Any) {
@@ -92,7 +92,7 @@ extension PreviewViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let previewNode = tournament?.rounds[0][indexPath.row]
-		let cell = tableView.dequeueReusableCell(withIdentifier: PreviewCell.identifier) as! PreviewCell
+		let cell = previewView.dequeueReusableCell(withIdentifier: PreviewCell.identifier) as! PreviewCell
 		cell.setOptions(node: previewNode!)
 		return cell
 	}
@@ -115,7 +115,7 @@ extension PreviewViewController: UICollectionViewDataSource, UICollectionViewDel
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 500, height: 500)
+		return CGSize(width: 50, height: 50)
 	}
 	
 }

@@ -10,10 +10,9 @@ import UIKit
 
 class PreviewCell: UITableViewCell {
 	
+	static let identifier = "PreviewCell"
 	@IBOutlet weak var optionOne: UILabel!
 	@IBOutlet weak var optionTwo: UILabel!
-	
-	static let identifier = "PreviewCell"
 	
 	func setOptions(node: Node) {
 		optionOne.text = node.optionOne.label

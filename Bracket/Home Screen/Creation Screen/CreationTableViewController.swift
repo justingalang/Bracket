@@ -20,8 +20,7 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 	override func viewDidLoad() {
         super.viewDidLoad()
 		Defaults.creationTournamentSize = 2
-		
-		
+	
 		NotificationCenter.default.addObserver(self, selector: #selector(updateSetOptions), name: NSNotification.Name(rawValue: "didPressNext"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnIncreaseSize"), object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(updateOptionSize), name: NSNotification.Name(rawValue: "didTapOnDecreaseSize"), object: nil)
@@ -37,9 +36,7 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 				newOptions[index] = option
 			}
 		}
-		
 		options = newOptions
-		print(options)
 		tableView.reloadData()
 		
 	}
@@ -51,7 +48,6 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of
         return 2
     }
 
@@ -63,10 +59,10 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.section == 1 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: CreationTournamentSizeTableViewCell.identifier, for: indexPath) as! CreationTournamentSizeTableViewCell
-			return cell
-		}
+			if indexPath.section == 1 {
+				let cell = tableView.dequeueReusableCell(withIdentifier: CreationTournamentSizeTableViewCell.identifier, for: indexPath) as! CreationTournamentSizeTableViewCell
+				return cell
+			}
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: CreationOptionTableViewCell.identifier, for: indexPath) as! CreationOptionTableViewCell
 		cell.optionOneTextField.text = options[2*indexPath.row]
@@ -78,11 +74,15 @@ class CreationTableViewController: UITableViewController, UITextFieldDelegate{
 		return cell
 	}
 	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 50
+	}
+	
 	func textFieldDidChangeSelection(_ textField: UITextField) {
-		print(options)
-		print(textField.tag)
 		options[textField.tag - 1] = textField.text ?? ""
 	}
+	
+	
 //******************************************************************
 //***************** SECTION HEADER *********************************
 //	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
