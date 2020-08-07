@@ -13,6 +13,7 @@ class HomePageViewController: UIViewController {
     
 	@IBOutlet weak var tournamentTableView: UITableView!
 	
+	
 	struct Storyboard {
 		static let homeToPreview = "HomeToPreview"
 		static let homeToCreation = "HomeToCreation"

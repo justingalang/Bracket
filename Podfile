@@ -6,7 +6,13 @@ target 'Bracket' do
   use_frameworks!
 
   # Pods for Bracket
-	pod 'Firebase/Analytics'
 	pod 'SwiftyUserDefaults', '~> 5.0'
 	pod 'iOSDropDown', '~> 0.3'
+	
+	#Firebase Pods
+	pod 'Firebase/Core'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Auth'
+	pod 'GoogleSignIn'
+	
 end
