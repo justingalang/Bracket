@@ -11,6 +11,7 @@ target 'Bracket' do
 	
 	#Firebase Pods
 	pod 'Firebase/Core'
+	pod 'Firebase/Firestore'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
 	pod 'GoogleSignIn'

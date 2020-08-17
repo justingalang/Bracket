@@ -8,27 +8,18 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-		GIDSignIn.sharedInstance()?.clientID = "155562952686-bm8l8ak5bj0rinsigc8emcobhbktitoc.apps.googleusercontent.com"
-		GIDSignIn.sharedInstance()?.delegate = self
+		
         return true
     }
 	
-	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-		print("User email: \(user.profile.email ?? "No Email")")
-	}
-	
-	func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-		return GIDSignIn.sharedInstance().handle(url)
-	}
 
     // MARK: UISceneSession Lifecycle
 

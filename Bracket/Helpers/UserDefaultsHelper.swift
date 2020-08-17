@@ -10,6 +10,10 @@ import UIKit
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
+	
+	//User
+	var userID: DefaultsKey<String> { return .init("userID", defaultValue: " ")}
+	
 	//Tournament Creation
 	var creationTournamentTopic: DefaultsKey<String> { return .init("creationTournamentTopic", defaultValue: " ")}
 	var creationTournamentTitle: DefaultsKey<String> { return .init("creationTournamentTitle", defaultValue: " ")}
