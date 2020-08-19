@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyUserDefaults
+import Firebase
+
 class CreationPublishViewController: UIViewController {
 	
 	//@IBOutlet weak var tournamentTitle: UILabel!
@@ -20,17 +22,19 @@ class CreationPublishViewController: UIViewController {
 	@IBOutlet weak var tournamentPicture: UIImageView!
 	@IBOutlet weak var descriptionTextView: UITextView!
 	
+	let db = Firestore.firestore()
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		setUI()
 		
-
-        // Do any additional setup after loading the view.
-    }
+		// Do any additional setup after loading the view.
+	}
 	
 	func setUI() {
 		self.title = Defaults.creationTournamentTitle
+		author.text = Defaults.currentUserUserName
+		
 		if Defaults.creationTournamentTopic == "" || Defaults.creationTournamentTopic == "None" {
 			topic.text = ""
 		} else {
@@ -48,12 +52,38 @@ class CreationPublishViewController: UIViewController {
 	}
 	
 	@IBAction func didPressPublish(_ sender: Any) {
-		
+		let db = Firestore.firestore()
+		let tournamentCollection = db.collection("tournaments")
+		let tournamentID = tournamentCollection.document().documentID
+		tournamentCollection.document(tournamentID).setData(
+		["tournamentID": tournamentID,
+		 "title": Defaults.creationTournamentTitle,
+		 "author": Defaults.currentUserUserName,
+		 "authorID": Defaults.currentUserID,
+		 "topic": Defaults.creationTournamentTopic,
+		 "description": descriptionTextView!.text as String,
+		 "size": Defaults.creationTournamentSize! as Int,
+		 "options": Defaults.creationTournamentOptionsArray]) { (error) in
+			if error != nil {
+				//Show error message
+				print("Error saving user data")
+			}
+			self.transitionToHome()
+		}
 	}
 	
-	
+	func transitionToHome() {
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let mainTabBarController = storyboard.instantiateViewController(identifier: Constants.Storyboard.mainTabBarController)
+		
+		// This is to get the SceneDelegate object from your view controller
+		// then call the change root view controller function to change to main tab bar
+		(UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
+	}
 }
-
+	
+	
+	
 extension CreationPublishViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (Defaults.creationTournamentSize ?? 2)/2
@@ -70,6 +100,7 @@ extension CreationPublishViewController: UITableViewDelegate, UITableViewDataSou
 	}
 }
 
+	
 extension CreationPublishViewController: UITextViewDelegate {
 	func textViewDidBeginEditing(_ textView: UITextView)
 	{
@@ -80,7 +111,7 @@ extension CreationPublishViewController: UITextViewDelegate {
 		}
 		textView.becomeFirstResponder() //Optional
 	}
-
+	
 	func textViewDidEndEditing(_ textView: UITextView)
 	{
 		if (textView.text == "")
@@ -91,3 +122,4 @@ extension CreationPublishViewController: UITextViewDelegate {
 		textView.resignFirstResponder()
 	}
 }
+

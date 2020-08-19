@@ -12,7 +12,10 @@ import SwiftyUserDefaults
 extension DefaultsKeys {
 	
 	//User
-	var userID: DefaultsKey<String> { return .init("userID", defaultValue: " ")}
+	var currentUserID: DefaultsKey<String> { return .init("currentUserID", defaultValue: " ")}
+	var currentUserFirstName: DefaultsKey<String> { return .init("currentUserFirstName", defaultValue: " ")}
+	var currentUserLastName: DefaultsKey<String> { return .init("currentUserLastName", defaultValue: " ")}
+	var currentUserUserName: DefaultsKey<String> { return .init("currentUserUserName", defaultValue: " ")}
 	
 	//Tournament Creation
 	var creationTournamentTopic: DefaultsKey<String> { return .init("creationTournamentTopic", defaultValue: " ")}

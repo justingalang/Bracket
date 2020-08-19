@@ -8,9 +8,10 @@
 
 import UIKit
 import SwiftyUserDefaults
+import Firebase
 
 class HomePageViewController: UIViewController {
-    
+	
 	@IBOutlet weak var tournamentTableView: UITableView!
 	
 	
@@ -23,37 +24,53 @@ class HomePageViewController: UIViewController {
 	let defaults = UserDefaults.standard
 	
 	override func viewDidLoad() {
-			super.viewDidLoad()
+		super.viewDidLoad()
+		//Get specific document from current user
+		let docRef = Firestore.firestore().collection("users").document(Auth.auth().currentUser?.uid ?? "")
 		
-			let appearance = UINavigationBarAppearance()
-			appearance.configureWithOpaqueBackground()
-			appearance.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-			appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
-			navigationItem.standardAppearance = appearance
-			navigationItem.scrollEdgeAppearance = appearance
-			navigationItem.compactAppearance = appearance
-			
-			tournamentTableView.dataSource = self
-			tournamentTableView.delegate = self
-			tournamentTableView.rowHeight = UITableView.automaticDimension
-			tournamentTableView.estimatedRowHeight = 100.0
+		// Get data
+		docRef.getDocument { (document, error) in
+			if let document = document, document.exists {
+				let dataDescription = document.data()
+				Defaults.currentUserFirstName = dataDescription?["firstName"] as! String
+				Defaults.currentUserLastName = dataDescription?["lastName"]  as! String
+				Defaults.currentUserUserName = dataDescription?["userName"]  as! String
+				Defaults.currentUserID = dataDescription?["uid"]  as! String
+				
+			} else {
+				print("ERROR RETRIEVING DOC : \(String(describing: error?.localizedDescription))")
+			}
+		}
 		
-			var tempTitles: [Tournament] = []
+		let appearance = UINavigationBarAppearance()
+		appearance.configureWithOpaqueBackground()
+		appearance.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+		appearance.titleTextAttributes = [.foregroundColor: UIColor.systemBlue]
+		navigationItem.standardAppearance = appearance
+		navigationItem.scrollEdgeAppearance = appearance
+		navigationItem.compactAppearance = appearance
+		
+		tournamentTableView.dataSource = self
+		tournamentTableView.delegate = self
+		tournamentTableView.rowHeight = UITableView.automaticDimension
+		tournamentTableView.estimatedRowHeight = 100.0
+		
+		var tempTitles: [Tournament] = []
 		let tournament1 = Tournament(title: "Disney vs. Pixar", topic: "Movies", author: "Justin Galang", size: 32, description: "This is a test", optionTitlesList: ["Lion King", "Tarzan", "Princess and The Frog", "Lilo and Stitch", "Tangled", "Big Hero 6", "Frozen", "Moana",  "Aladdin", "Hercules", "Little Mermaid","Pocahontas", "Mulan", "Zootopia", "Beauty and The Beast", "Nightmare Before Christmas", "UP",  "Brave", "Toy Story","Toy Story 2",  "Coco",  "Cars 2", "Toy Story 3", "The Good Dinosaur", "Ratatouille", "Bugs Life", "Nemo",  "Inside Out", "Monsters Inc.", "Cars", "Incredibles", "Wall-E"])
 		
-			let tournament2 = Tournament(title: "One Direction Songs", topic: "Music", author: "Jace", size: 32, description: "This is a Test", optionTitlesList: ["Drag Me Down", "strong", "One Thing", "If I Could Fly", "Best Song Ever", "Midnight Memories", "Little Things", "What A Feeling", "Perfect", "Half A Heart", "No Control", "End of A Day", "You&I", "Stockholm Syndrome", "What Makes You Beautiful", "Rock Me", "Story of My Life", "More Than This", "They Don't Know About Us", "A.M", "Kiss You", "Where Do Broken Hearts Go", "Night Changes", "Olivia", "History", "Happily", "Live While You're Young", "18", "Infinity", "Love You Goodbye", "Steal My Girl", "Fireproof"])
+		let tournament2 = Tournament(title: "One Direction Songs", topic: "Music", author: "Jace", size: 32, description: "This is a Test", optionTitlesList: ["Drag Me Down", "strong", "One Thing", "If I Could Fly", "Best Song Ever", "Midnight Memories", "Little Things", "What A Feeling", "Perfect", "Half A Heart", "No Control", "End of A Day", "You&I", "Stockholm Syndrome", "What Makes You Beautiful", "Rock Me", "Story of My Life", "More Than This", "They Don't Know About Us", "A.M", "Kiss You", "Where Do Broken Hearts Go", "Night Changes", "Olivia", "History", "Happily", "Live While You're Young", "18", "Infinity", "Love You Goodbye", "Steal My Girl", "Fireproof"])
 		
-			let tournament3 = Tournament(title: "Popular Country Hits",  topic: "Music", author: "Addison", size: 16, description: "This is a test", optionTitlesList: ["Luke Bryan", "Kelsea Ballerini", "Eric Church", "Zac Brown Band", "Tim McGraw", "Thomas Rhett", "Keith Urban", "Brett Eldredge", "Blake Shelton", "Little Big Town", "Miranda Lambert", "Florida Georgia Line", "Carrie Underwood", "Dierks Bentley", "Kenny Chesney", "Sam Hunt" ])
+		let tournament3 = Tournament(title: "Popular Country Hits",  topic: "Music", author: "Addison", size: 16, description: "This is a test", optionTitlesList: ["Luke Bryan", "Kelsea Ballerini", "Eric Church", "Zac Brown Band", "Tim McGraw", "Thomas Rhett", "Keith Urban", "Brett Eldredge", "Blake Shelton", "Little Big Town", "Miranda Lambert", "Florida Georgia Line", "Carrie Underwood", "Dierks Bentley", "Kenny Chesney", "Sam Hunt" ])
 		
-			let tournament4 = Tournament(title: "Beatles Songs",  topic: "Music", author: "Justin", size: 64, description: "This is a test", optionTitlesList: ["Love Me Do", "The Long & Winding Road", "Tomorrow Never Knows", "Yellow Submarine", "I've Just Seen a Face", "Ob-La-Di Ob-La-Da", "Ticket to Ride", "While My Guitar Gently Weeps", "A Hard Day's Night", "Come Together", "Michelle", "Hello Goodbye", "Girl", "All You Need Is Love", "I Want To Hold Your Hand", "Something", "Twist & Shout", "Octupus's Garden", "Eleanor Rigby", "Sgt. Pepper's Lonely Heart's Club Band", "We Can Work It Out", "Revolution", "Eight Days A Week", "Helter Skelter", "I Feel Fine", "Get Back", "Drive My Car", "Hey Jude", "Taxman", "With A Little Help From My Friends", "From Me To You", "Here Comes The Sun", "Please Please Me", "Across The Universe", "Got to Get You Into My Life", "Strawberry Fields Forever", "Yesterday", "Dear Prudence", "You've Got to Hide Your Love Away", "Happiness Is a Warm Gun", "And I Love Her", "The Ballad of John & Yoko", "Nowhere Man", "I Am The Walrus", "In My Life", "A Day In The Life", "All My Loving", "Oh Darling", "I Saw Her Standing There", "Let It Be", "Here, There, and Everywhere", "Penny Lane", "Day Tripper", "Back In The USSR", "Help!", "Blackbird", "Can't Buy Me Love", "Don't Let Me Down", "Norwegian Wood", "Lady Madonna", "Paperback Writer", "Lucy In The Sky With Diamonds", "She Loves You", "Abbey Road Medley"])
+		let tournament4 = Tournament(title: "Beatles Songs",  topic: "Music", author: "Justin", size: 64, description: "This is a test", optionTitlesList: ["Love Me Do", "The Long & Winding Road", "Tomorrow Never Knows", "Yellow Submarine", "I've Just Seen a Face", "Ob-La-Di Ob-La-Da", "Ticket to Ride", "While My Guitar Gently Weeps", "A Hard Day's Night", "Come Together", "Michelle", "Hello Goodbye", "Girl", "All You Need Is Love", "I Want To Hold Your Hand", "Something", "Twist & Shout", "Octupus's Garden", "Eleanor Rigby", "Sgt. Pepper's Lonely Heart's Club Band", "We Can Work It Out", "Revolution", "Eight Days A Week", "Helter Skelter", "I Feel Fine", "Get Back", "Drive My Car", "Hey Jude", "Taxman", "With A Little Help From My Friends", "From Me To You", "Here Comes The Sun", "Please Please Me", "Across The Universe", "Got to Get You Into My Life", "Strawberry Fields Forever", "Yesterday", "Dear Prudence", "You've Got to Hide Your Love Away", "Happiness Is a Warm Gun", "And I Love Her", "The Ballad of John & Yoko", "Nowhere Man", "I Am The Walrus", "In My Life", "A Day In The Life", "All My Loving", "Oh Darling", "I Saw Her Standing There", "Let It Be", "Here, There, and Everywhere", "Penny Lane", "Day Tripper", "Back In The USSR", "Help!", "Blackbird", "Can't Buy Me Love", "Don't Let Me Down", "Norwegian Wood", "Lady Madonna", "Paperback Writer", "Lucy In The Sky With Diamonds", "She Loves You", "Abbey Road Medley"])
 		
-			tempTitles.append(tournament1)
-			tempTitles.append(tournament2)
-			tempTitles.append(tournament3)
-			tempTitles.append(tournament4)
-			
-			sampleTournamentTitles = tempTitles
-			addNavBarImage()
+		tempTitles.append(tournament1)
+		tempTitles.append(tournament2)
+		tempTitles.append(tournament3)
+		tempTitles.append(tournament4)
+		
+		sampleTournamentTitles = tempTitles
+		addNavBarImage()
 	}
 	
 	func addNavBarImage() {

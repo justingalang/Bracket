@@ -205,6 +205,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="Q91-qs-QTS" eventType="touchUpInside" id="Sev-gD-n2Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New to this app?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqP-yf-I1N">
                                 <rect key="frame" x="123.5" y="556.5" width="128" height="20.5"/>
@@ -251,11 +254,11 @@
                         <viewLayoutGuide key="safeArea" id="Dav-tY-hSX"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="g9J-aw-3hj" id="SL5-7O-H5a"/>
                         <outlet property="errorLabel" destination="rKu-io-5cU" id="i0S-fk-hVn"/>
                         <outlet property="loginButton" destination="xOU-br-z4D" id="fpp-mx-QfW"/>
                         <outlet property="passwordTextField" destination="acH-ic-2Ga" id="ShQ-yo-EPW"/>
                         <outlet property="signUpButton" destination="RG4-Cl-COn" id="yZg-YD-9n1"/>
-                        <outlet property="userNameTextField" destination="g9J-aw-3hj" id="UMZ-s2-SVv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KeP-WT-PSl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import SwiftyUserDefaults
 
 class SignUpViewController: UIViewController {
 	
@@ -28,12 +29,12 @@ class SignUpViewController: UIViewController {
 	
 	@IBOutlet weak var signInButton: UIButton!
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		setUI()
-
-    }
-     
+		
+	}
+	
 	func setUI() {
 		userNameErrorLabel.alpha = 0
 		passwordErrorLabel.alpha = 0
@@ -48,7 +49,7 @@ class SignUpViewController: UIViewController {
 			userNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
 			passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" /*||
 			confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""*/ {
-			return "Please fill in all fields."
+				return "Please fill in all fields."
 		}
 		
 		let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -82,32 +83,28 @@ class SignUpViewController: UIViewController {
 				} else {
 					// User created successfully - store
 					let db = Firestore.firestore()
-					
-					/** For tournametnts
-					let userCollection = db.collection("users")
-					
-					let userID = userCollection.document().documentID
-					*/
-					
 					let userID = result!.user.uid
-					db.collection("users").document(userID).setData(["firstName": firstName,"lastName": lastName, "userName": userName, "uid": userID])
-					
-					
-					
-					
-					
-					/*db.collection("users").addDocument(data: ["firstName": firstName,"lastName": lastName, "userName": userName, "uid": result!.user.uid])*/ { (error) in
+					db.collection("users").document(userID).setData([
+						"firstName": firstName,
+						"lastName": lastName,
+						"userName": userName,
+						"uid": userID])
+					{ (error) in
 						if error != nil {
 							//Show error message
 							self.showError("Error saving user data")
 						}
-						print(userID)
 						self.transitionToHome()
+						
+						/** For tournametnts
+						let userCollection = db.collection("users")
+						
+						let userID = userCollection.document().documentID
+						*/
 					}
 				}
 			}
 		}
-		
 	}
 	
 	func showError(_ message: String) {
@@ -125,14 +122,14 @@ class SignUpViewController: UIViewController {
 	}
 	
 	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	/*
+	// MARK: - Navigation
+	
+	// In a storyboard-based application, you will often want to do a little preparation before navigation
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+	// Get the new view controller using segue.destination.
+	// Pass the selected object to the new view controller.
+	}
+	*/
+	
 }
