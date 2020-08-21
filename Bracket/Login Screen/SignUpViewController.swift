@@ -84,24 +84,17 @@ class SignUpViewController: UIViewController {
 					// User created successfully - store
 					let db = Firestore.firestore()
 					let userID = result!.user.uid
-					db.collection("users").document(userID).setData([
-						"firstName": firstName,
-						"lastName": lastName,
-						"userName": userName,
-						"uid": userID])
-					{ (error) in
-						if error != nil {
-							//Show error message
-							self.showError("Error saving user data")
-						}
-						self.transitionToHome()
-						
-						/** For tournametnts
-						let userCollection = db.collection("users")
-						
-						let userID = userCollection.document().documentID
-						*/
+					db.collection("users").document(userID).setData(
+						["firstName": firstName,
+						 "lastName": lastName,
+						 "userName": userName,
+						 "uid": userID]) { (error) in
+							if error != nil {
+								//Show error message
+								self.showError("Error saving user data")
+							}
 					}
+					self.transitionToHome()
 				}
 			}
 		}

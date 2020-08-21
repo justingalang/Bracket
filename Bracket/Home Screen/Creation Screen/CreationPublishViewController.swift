@@ -55,21 +55,39 @@ class CreationPublishViewController: UIViewController {
 		let db = Firestore.firestore()
 		let tournamentCollection = db.collection("tournaments")
 		let tournamentID = tournamentCollection.document().documentID
+		
+		//Add tournament to collection
 		tournamentCollection.document(tournamentID).setData(
-		["tournamentID": tournamentID,
-		 "title": Defaults.creationTournamentTitle,
-		 "author": Defaults.currentUserUserName,
-		 "authorID": Defaults.currentUserID,
-		 "topic": Defaults.creationTournamentTopic,
-		 "description": descriptionTextView!.text as String,
-		 "size": Defaults.creationTournamentSize! as Int,
-		 "options": Defaults.creationTournamentOptionsArray]) { (error) in
-			if error != nil {
-				//Show error message
-				print("Error saving user data")
+			["tournamentID": tournamentID,
+			 "title": Defaults.creationTournamentTitle,
+			 "author": Defaults.currentUserUserName,
+			 "authorID": Defaults.currentUserID,
+			 "topic": Defaults.creationTournamentTopic,
+			 "description": descriptionTextView!.text as String,
+			 "size": Defaults.creationTournamentSize! as Int,
+			 "options": Defaults.creationTournamentOptionsArray]) { (error) in
+				if error != nil {
+					//Show error message
+					print("Error saving tournament")
+				}
 			}
-			self.transitionToHome()
+				
+		//add tournament ID to user
+		let userCollection = db.collection("users")
+		let currentUserTournamentsCollection = userCollection.document(Defaults.currentUserID).collection("tournaments").document(tournamentID)
+		currentUserTournamentsCollection.setData(
+		["tournamentID": tournamentID]) { (error) in
+			if error != nil {
+				print("Error Saving tournament to user")
+			}
 		}
+		
+		//increment created tournament count
+		let value: Double = 1
+		userCollection.document(Defaults.currentUserID).updateData(["createdTournamentCount": FieldValue.increment(value)])
+		
+		//return to home
+		self.transitionToHome()
 	}
 	
 	func transitionToHome() {

@@ -44,8 +44,6 @@ class LoginViewController: UIViewController {
 				self.errorLabel.text = error!.localizedDescription
 				self.errorLabel.alpha = 1
 			} else {
-				
-					
 				self.transitionToHome()
 			}
 		}
@@ -55,21 +53,10 @@ class LoginViewController: UIViewController {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let mainTabBarController = storyboard.instantiateViewController(identifier: Constants.Storyboard.mainTabBarController)
 		
-		// This is to get the SceneDelegate object from your view controller
-		// then call the change root view controller function to change to main tab bar
 		(UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainTabBarController)
 	}
     
 	@IBAction func unwindToLogin(_ sender: UIStoryboardSegue) {}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
