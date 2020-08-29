@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftyUserDefaults
 
 class LoginViewController: UIViewController {
 
@@ -17,6 +18,9 @@ class LoginViewController: UIViewController {
 	@IBOutlet weak var loginButton: UIButton!
 	@IBOutlet weak var signUpButton: UIButton!
 	override func viewDidLoad() {
+		if Defaults.isLoggedIn == true {
+			self.transitionToHome()
+		}
         super.viewDidLoad()
 		
 		setUI()

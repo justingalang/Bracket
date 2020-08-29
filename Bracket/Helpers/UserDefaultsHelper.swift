@@ -16,6 +16,7 @@ extension DefaultsKeys {
 	var currentUserFirstName: DefaultsKey<String> { return .init("currentUserFirstName", defaultValue: " ")}
 	var currentUserLastName: DefaultsKey<String> { return .init("currentUserLastName", defaultValue: " ")}
 	var currentUserUserName: DefaultsKey<String> { return .init("currentUserUserName", defaultValue: " ")}
+	var isLoggedIn: DefaultsKey<Bool> { return . init("isLoggedIn", defaultValue: true)}
 	
 	//Tournament Creation
 	var creationTournamentTopic: DefaultsKey<String> { return .init("creationTournamentTopic", defaultValue: " ")}

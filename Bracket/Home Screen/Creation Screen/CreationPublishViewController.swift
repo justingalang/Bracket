@@ -72,9 +72,9 @@ class CreationPublishViewController: UIViewController {
 				}
 			}
 				
-		//add tournament ID to user
+		//add tournament ID and display info to user
 		let userCollection = db.collection("users")
-		let currentUserTournamentsCollection = userCollection.document(Defaults.currentUserID).collection("tournaments").document(tournamentID)
+		let currentUserTournamentsCollection = userCollection.document(Defaults.currentUserID).collection("createdTournaments").document(tournamentID)
 		currentUserTournamentsCollection.setData(
 		["tournamentID": tournamentID]) { (error) in
 			if error != nil {
@@ -82,7 +82,7 @@ class CreationPublishViewController: UIViewController {
 			}
 		}
 		
-		//increment created tournament count
+		//increment user's created tournament count
 		let value: Double = 1
 		userCollection.document(Defaults.currentUserID).updateData(["createdTournamentCount": FieldValue.increment(value)])
 		

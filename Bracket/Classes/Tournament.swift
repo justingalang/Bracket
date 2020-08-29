@@ -12,8 +12,9 @@ import SwiftyUserDefaults
 class Tournament {
 	
 	//var thumbnail: UIImageView?
+	var tournamentID: String
 	var title: String
-	var topic: String?
+	var topic: String
 	var author: String
 	var size: Int
 	var description: String?
@@ -25,7 +26,9 @@ class Tournament {
 	
 	
 	init() {
+		self.tournamentID = ""
 		self.title = ""
+		self.topic = ""
 		self.author = ""
 		self.size = 0
 		self.description = " "
@@ -42,7 +45,8 @@ class Tournament {
 	///   - size: Count of how many options
 	///   - description: Description of the tournament
 	///   - optionTitlesList: All titles of the option
-	init(/*thumbnail: UIImageView?,*/ title: String, topic: String?, author: String, size: Int, description: String?, optionTitlesList: [String]) {
+	init(/*thumbnail: UIImageView?,*/ tournamentID: String, title: String, topic: String, author: String, size: Int, description: String?, optionTitlesList: [String]) {
+		self.tournamentID = tournamentID
 		self.title = title
 		self.topic = topic
 		self.author = author
