@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SwiftyUserDefaults
+
 class Tournament {
 	
 	//var thumbnail: UIImageView?
@@ -65,6 +66,7 @@ class Tournament {
 	
 	/// Creates the first round of the tournamnent
 	func createFirstRound() {
+		
 		var firstRound: [Node] = []
 		for i in 0..<size/2 {
 			firstRound.append(Node(optionOne: optionList[2*i], optionTwo: optionList[(2*i)+1]))
@@ -143,6 +145,16 @@ class Tournament {
         }
 	}
 	
+	/// Checks if it is the end of the Tournament
+	/// - Returns: returns true if end of the tournament
+	func endOfTournament() -> Bool {
+		if endOfRound() && roundIsComplete() && nodeIndex == 0 {
+			return true
+		} else {
+			return false
+		}
+	}
+	
 	/// Checks if round is complete
 	/// - Returns: returns true if it is complete
 	func roundIsComplete() -> Bool {
@@ -152,16 +164,6 @@ class Tournament {
 			}
 		}
 		return true
-	}
-	
-	/// Checks if it is the end of the Tournament
-	/// - Returns: returns true if end of the tournament
-	func endOfTournament() -> Bool {
-		if endOfRound() && roundIsComplete() && nodeIndex == 0 {
-			return true
-		} else {
-			return false
-		}
 	}
 	
 	func getCurrentNode() -> Node {

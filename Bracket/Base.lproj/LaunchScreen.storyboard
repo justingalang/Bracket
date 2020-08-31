@@ -15,24 +15,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyK-Ek-Cfh">
-                                <rect key="frame" x="186.5" y="437.5" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="PrototypeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="3P9-Ze-xgQ">
+                                <rect key="frame" x="74" y="392" width="266" height="113"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="UyK-Ek-Cfh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="P9o-dM-Kpn"/>
-                            <constraint firstItem="UyK-Ek-Cfh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="wBh-57-0OL"/>
+                            <constraint firstItem="3P9-Ze-xgQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7Gl-vi-9Y4"/>
+                            <constraint firstItem="3P9-Ze-xgQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="W53-4K-zI6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PrototypeLogo" width="331.5" height="141"/>
+    </resources>
 </document>

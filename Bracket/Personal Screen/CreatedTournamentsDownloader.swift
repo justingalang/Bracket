@@ -16,16 +16,13 @@ class CreatedTournamentDownloader {
 	func downloadCreatedTournaments(completion: @escaping ([Tournament], Error?) -> Void) {
 		print("function call")
 		var createdTournaments = [Tournament]()
-		let dispatchGroup = DispatchGroup()
 		let query = tournamentCollection.whereField("authorID", isEqualTo: Defaults.currentUserID).limit(to: 10)
-		dispatchGroup.enter()
 		query.getDocuments { snapshot, error in
 			print("CLOSURE")
 			if let error = error {
 				print(error)
 				completion(createdTournaments, error)
 				print("ERROR")
-				dispatchGroup.leave()
 				return
 			}
 			for doc in snapshot!.documents {
@@ -39,7 +36,6 @@ class CreatedTournamentDownloader {
 				
 				createdTournaments.append(tournament)
 				print("ADDED")
-				dispatchGroup.leave()
 			}
 			
 			completion(createdTournaments, nil)

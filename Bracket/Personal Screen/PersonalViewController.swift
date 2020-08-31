@@ -26,15 +26,14 @@ class PersonalViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		activityIndicator.style = .large
 		setUI()
 		let layout = UICollectionViewFlowLayout()
-		layout.itemSize = CGSize(width: 120, height: 120)
+		layout.itemSize = CGSize(width: 100, height: 100)
 		createdTournamentCollectionView.collectionViewLayout = layout
 		createdTournamentCollectionView.register(CreatedTournamentViewCell.nib(), forCellWithReuseIdentifier: CreatedTournamentViewCell.identifier)
 		createdTournamentCollectionView.delegate = self
 		createdTournamentCollectionView.dataSource = self
-		
-		
 	}
 
 	func setUI() {
@@ -47,9 +46,11 @@ class PersonalViewController: UIViewController {
 	
 	
 	func getCreatedTournaments() {
+		activityIndicator.isHidden = false
 		activityIndicator.startAnimating()
 		createdTournamentsDownloader.downloadCreatedTournaments() { tournamentsArray, error in
 		  self.activityIndicator.stopAnimating()
+			self.activityIndicator.isHidden = true
 		  if let error = error {
 			self.alert(title: "Error", message: error.localizedDescription)
 			return
@@ -57,6 +58,7 @@ class PersonalViewController: UIViewController {
 		  self.createdTournaments = tournamentsArray
 		  self.createdTournamentCollectionView.reloadData()
 		}
+		
 	}
 	
 	func alert(title: String, message: String) {
@@ -74,7 +76,7 @@ class PersonalViewController: UIViewController {
 extension PersonalViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		print("THIS IS THE COUNT: \(createdTournaments.count)")
-		return 2
+		return createdTournaments.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
