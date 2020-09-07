@@ -68,8 +68,15 @@ class Tournament {
 	func createFirstRound() {
 		
 		var firstRound: [Node] = []
-		for i in 0..<size/2 {
-			firstRound.append(Node(optionOne: optionList[2*i], optionTwo: optionList[(2*i)+1]))
+		if size == 2 {
+			firstRound.append(Node(optionOne: optionList[0], optionTwo: optionList[1]))
+		} else if size == 4 {
+			firstRound.append(Node(optionOne: optionList[0], optionTwo: optionList[1]))
+			firstRound.append(Node(optionOne: optionList[2], optionTwo: optionList[3]))
+		} else {
+			for i in 0..<size/2 {
+				firstRound.append(Node(optionOne: optionList[2*i], optionTwo: optionList[(2*i)+1]))
+			}
 		}
 		rounds.append(firstRound)
 	}

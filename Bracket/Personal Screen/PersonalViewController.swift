@@ -16,6 +16,8 @@ class PersonalViewController: UIViewController {
 	@IBOutlet weak var firstlastName: UILabel!
 	@IBOutlet weak var createdTournamentCollectionView: UICollectionView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var createdTournamentCount: UILabel!
+	@IBOutlet weak var completedTournamentCount: UILabel!
 	
 	let db = Firestore.firestore()
 	let userdoc = Firestore.firestore().collection("users").document(Defaults.currentUserID)
@@ -29,7 +31,7 @@ class PersonalViewController: UIViewController {
 		activityIndicator.style = .large
 		setUI()
 		let layout = UICollectionViewFlowLayout()
-		layout.itemSize = CGSize(width: 100, height: 100)
+		layout.itemSize = CGSize(width: 120, height: 120)
 		createdTournamentCollectionView.collectionViewLayout = layout
 		createdTournamentCollectionView.register(CreatedTournamentViewCell.nib(), forCellWithReuseIdentifier: CreatedTournamentViewCell.identifier)
 		createdTournamentCollectionView.delegate = self
@@ -41,7 +43,8 @@ class PersonalViewController: UIViewController {
 		username.text = Defaults.currentUserUserName
 		firstlastName.text = "\(Defaults.currentUserFirstName) \(Defaults.currentUserLastName)"
 		getCreatedTournaments()
-		print("THIS IS THE TOURNAMENT COUNT: \(createdTournaments.count)")
+		createdTournamentCount.text = "6"
+		completedTournamentCount.text = "0"
 	}
 	
 	
@@ -95,7 +98,7 @@ extension PersonalViewController: UICollectionViewDelegate {
 
 extension PersonalViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 120, height: 120)
+		return CGSize(width: 118, height: 118)
 	}
 	
 }
