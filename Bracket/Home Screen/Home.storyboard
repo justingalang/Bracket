@@ -440,7 +440,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="N0G-pn-ow2" kind="presentation" identifier="PreviewToTournament" modalPresentationStyle="fullScreen" id="6cE-1M-d4Y"/>
+                                    <action selector="didTapOnStart:" destination="0wW-bS-Q3f" eventType="touchUpInside" id="vwc-Mx-8Rb"/>
+                                    <segue destination="N0G-pn-ow2" kind="presentation" identifier="PreviewToTournament" modalPresentationStyle="fullScreen" id="2EH-eg-cFB"/>
                                 </connections>
                             </button>
                         </subviews>

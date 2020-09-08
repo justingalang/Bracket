@@ -60,13 +60,11 @@ class Tournament {
 		for optionTitles in optionTitlesList {
 			optionList.append(Option(label: optionTitles))
 		}
-		
 		createFirstRound()
 	}
 	
 	/// Creates the first round of the tournamnent
 	func createFirstRound() {
-		
 		var firstRound: [Node] = []
 		if size == 2 {
 			firstRound.append(Node(optionOne: optionList[0], optionTwo: optionList[1]))
@@ -97,7 +95,6 @@ class Tournament {
 		} else {
 			return
 		}
-		
 	}
 	
 	/// Goes to previous node of the round
@@ -108,7 +105,6 @@ class Tournament {
 			return
 		}
 	}
-	
 	
 	/// Creates the next round of the tournament
 	func createNextRound() {
@@ -193,5 +189,19 @@ class Tournament {
 	func optionTwoWins() {
 		rounds[roundIndex][nodeIndex].optionOne.setLose()
 		rounds[roundIndex][nodeIndex].optionTwo.setWin()
+	}
+	
+	func atBeginning() -> Bool {
+		if nodeIndex == 0 {
+			return true
+		}
+		return false
+	}
+	
+	func resetTournament() {
+		nodeIndex = 0
+		for option in optionList {
+			option.resetOption()
+		}
 	}
 }

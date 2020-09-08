@@ -74,6 +74,7 @@ class PreviewViewController: UIViewController {
 		}
 	}
 	@IBAction func didTapOnStart(_ sender: Any) {
+		self.tournament!.resetTournament()
 		performSegue(withIdentifier: Storyboard.previewToTournament, sender: self.tournament)
 	}
 	
@@ -86,7 +87,6 @@ extension PreviewViewController: UITableViewDataSource, UITableViewDelegate {
 			print("\(tournamentSize)")
 			return tournamentSize/2
 		}
-//		print("4")
 		return 0 // Fix
 	}
 	

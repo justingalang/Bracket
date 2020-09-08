@@ -10,7 +10,7 @@
         <!--Tournament View Controller-->
         <scene sceneID="cOl-hl-GIB">
             <objects>
-                <viewController id="s4S-QU-eFG" customClass="TournamentViewController" customModule="BrackIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="s4S-QU-eFG" customClass="TournamentViewController" customModule="Bracket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zEJ-2M-WE9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="89" width="375" height="533"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-Rh-T5d">
-                                        <rect key="frame" x="20" y="20" width="275" height="175"/>
+                                        <rect key="frame" x="5" y="20" width="275" height="175"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eh-aU-ci2">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="175"/>
@@ -41,7 +41,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeY-uF-iZm">
-                                        <rect key="frame" x="20" y="338" width="275" height="175"/>
+                                        <rect key="frame" x="5" y="338" width="275" height="175"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8O-yN-3lQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="175"/>
@@ -66,8 +66,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="c4i-Rh-T5d" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="20" id="7Js-gl-pdf"/>
-                                    <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="20" id="ARQ-a2-t0c"/>
+                                    <constraint firstItem="c4i-Rh-T5d" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="5" id="7Js-gl-pdf"/>
+                                    <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="5" id="ARQ-a2-t0c"/>
                                     <constraint firstItem="c4i-Rh-T5d" firstAttribute="top" secondItem="uyU-9T-nFe" secondAttribute="top" constant="20" id="PjH-kX-yjs"/>
                                     <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="c4i-Rh-T5d" secondAttribute="leading" id="WF1-LQ-40s"/>
                                     <constraint firstItem="OeY-uF-iZm" firstAttribute="centerX" secondItem="c4i-Rh-T5d" secondAttribute="centerX" id="cHA-eQ-nXl"/>

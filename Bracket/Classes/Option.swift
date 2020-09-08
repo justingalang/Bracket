@@ -17,6 +17,7 @@ class Option {
 	
 	var label: String
 	var status: Status
+	
 	init(label: String) {
 		self.label = label
 		self.status = .unselected
@@ -28,5 +29,9 @@ class Option {
 	
 	func setLose() {
 		status = .lose
+	}
+	
+	func resetOption() {
+		status = .unselected
 	}
 }
