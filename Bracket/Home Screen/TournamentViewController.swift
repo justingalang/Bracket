@@ -17,6 +17,7 @@ class TournamentViewController: UIViewController {
 	
 	var tournament : Tournament?
 	
+	@IBOutlet weak var tournamentTitle: UILabel!
 	@IBOutlet var tournamentView: UIView!
 	@IBOutlet weak var choicesView: UIView!
 	
@@ -30,7 +31,14 @@ class TournamentViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setUI()
+		updateChoices()
+	}
+	
+	func setUI() {
+		self.title = "Round \(tournament!.roundIndex + 1)"
 		//Screen Style
+		tournamentTitle.text = tournament?.title
 		tournamentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 		//Choice styles
 		choiceOneView.layer.cornerRadius = 20.0
@@ -42,8 +50,6 @@ class TournamentViewController: UIViewController {
 		choiceTwoLabel.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
 		choiceTwoLabel.layer.cornerRadius = 20.0
 		choiceTwoLabel.clipsToBounds = true
-		self.navigationController?.title = tournament?.title
-		updateChoices()
 	}
 	
 	/// Change choice one and choice two to enum - switch-case events
@@ -77,6 +83,10 @@ class TournamentViewController: UIViewController {
 		} else {
 			return
 		}
+	}
+	
+	func animate() {
+		//if 
 	}
 	
 	/// animation for swiping back

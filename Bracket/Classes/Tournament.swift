@@ -82,16 +82,14 @@ class Tournament {
 	/// Goes to next node of the tournament
 	func nextNode() {
 		if endOfTournament() {
+			
 			return
-		} else if endOfRound() && roundIsComplete() {
+		} else if endOfRound() {
 			createNextRound()
 			roundIndex += 1
 			nodeIndex = 0
-		} else if !endOfRound() && !roundIsComplete() {
+		} else if !endOfRound(){
 			nodeIndex += 1
-		} else if endOfRound() && !roundIsComplete() {
-			// return back to incomplete node
-			return
 		} else {
 			return
 		}
@@ -199,6 +197,7 @@ class Tournament {
 	}
 	
 	func resetTournament() {
+		roundIndex = 0
 		nodeIndex = 0
 		for option in optionList {
 			option.resetOption()

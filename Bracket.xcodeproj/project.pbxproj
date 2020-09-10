@@ -24,8 +24,8 @@
 		6D0DD19124B95D3E00D3D8A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0DD19024B95D3E00D3D8A5 /* Main.storyboard */; };
 		6D11F0BC24F71D5A0030E3D1 /* CreatedTournamentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D11F0BA24F71D5A0030E3D1 /* CreatedTournamentViewCell.swift */; };
 		6D11F0BD24F71D5A0030E3D1 /* CreatedTournamentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D11F0BB24F71D5A0030E3D1 /* CreatedTournamentViewCell.xib */; };
-		6D183F7524DCD6A6006AE419 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D183F7424DCD6A5006AE419 /* Utilities.swift */; };
 		6D183F7724DCE855006AE419 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D183F7624DCE854006AE419 /* Constants.swift */; };
+		6D50C52C2509C45700862A9A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D50C52B2509C45700862A9A /* Utilities.swift */; };
 		6D51352024F02512009F1705 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D51351E24F02512009F1705 /* PreviewCell.swift */; };
 		6D51352124F02512009F1705 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D51351F24F02512009F1705 /* PreviewViewController.swift */; };
 		6D53D42C24C173C5005ABF45 /* TournamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53D42A24C173C4005ABF45 /* TournamentViewController.swift */; };
@@ -75,8 +75,8 @@
 		6D0DD19924BD79F200D3D8A5 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		6D11F0BA24F71D5A0030E3D1 /* CreatedTournamentViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedTournamentViewCell.swift; sourceTree = "<group>"; };
 		6D11F0BB24F71D5A0030E3D1 /* CreatedTournamentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatedTournamentViewCell.xib; sourceTree = "<group>"; };
-		6D183F7424DCD6A5006AE419 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../../../../Downloads/CustomLoginDemo/CustomLoginDemo/Helpers/Utilities.swift; sourceTree = "<group>"; };
 		6D183F7624DCE854006AE419 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6D50C52B2509C45700862A9A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6D51351E24F02512009F1705 /* PreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewCell.swift; path = "Bracket/Home Screen/PreviewCell.swift"; sourceTree = SOURCE_ROOT; };
 		6D51351F24F02512009F1705 /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewViewController.swift; path = "Bracket/Home Screen/PreviewViewController.swift"; sourceTree = SOURCE_ROOT; };
 		6D53D42A24C173C4005ABF45 /* TournamentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TournamentViewController.swift; path = "Bracket/Home Screen/TournamentViewController.swift"; sourceTree = "<group>"; };
@@ -189,7 +189,7 @@
 				6D0DD19424BBB13600D3D8A5 /* SceneDelegate.swift */,
 				6D0DD19224BBB13600D3D8A5 /* UserDefaultsHelper.swift */,
 				6D183F7624DCE854006AE419 /* Constants.swift */,
-				6D183F7424DCD6A5006AE419 /* Utilities.swift */,
+				6D50C52B2509C45700862A9A /* Utilities.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -494,7 +494,6 @@
 			files = (
 				6D07C5B124C16F1000C6775D /* AppDelegate.swift in Sources */,
 				6D07C5B224C16F1000C6775D /* SceneDelegate.swift in Sources */,
-				6D183F7524DCD6A6006AE419 /* Utilities.swift in Sources */,
 				6D53D42D24C173C5005ABF45 /* TournamentOptionCell.swift in Sources */,
 				6D07C5B324C16F1000C6775D /* UserDefaultsHelper.swift in Sources */,
 				6D183F7724DCE855006AE419 /* Constants.swift in Sources */,
@@ -516,6 +515,7 @@
 				6D765F8624C7803C00636526 /* CreationTournamentSizeTableViewCell.swift in Sources */,
 				6D765F8824C7810C00636526 /* CreationTableViewController.swift in Sources */,
 				6D07C5AC24C16F0300C6775D /* HomePageViewController.swift in Sources */,
+				6D50C52C2509C45700862A9A /* Utilities.swift in Sources */,
 				6D53D46224C1E398005ABF45 /* TrendingTableViewCell.swift in Sources */,
 				6D51352124F02512009F1705 /* PreviewViewController.swift in Sources */,
 				6D7239CD24D7DE9A00116E2E /* SignUpViewController.swift in Sources */,

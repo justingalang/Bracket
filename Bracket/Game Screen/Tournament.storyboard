@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="89" width="375" height="533"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-Rh-T5d">
-                                        <rect key="frame" x="5" y="20" width="275" height="175"/>
+                                        <rect key="frame" x="5" y="50" width="275" height="175"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eh-aU-ci2">
                                                 <rect key="frame" x="0.0" y="0.0" width="275" height="175"/>
@@ -68,7 +68,7 @@
                                 <constraints>
                                     <constraint firstItem="c4i-Rh-T5d" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="5" id="7Js-gl-pdf"/>
                                     <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="uyU-9T-nFe" secondAttribute="leading" constant="5" id="ARQ-a2-t0c"/>
-                                    <constraint firstItem="c4i-Rh-T5d" firstAttribute="top" secondItem="uyU-9T-nFe" secondAttribute="top" constant="20" id="PjH-kX-yjs"/>
+                                    <constraint firstItem="c4i-Rh-T5d" firstAttribute="top" secondItem="uyU-9T-nFe" secondAttribute="top" constant="50" id="PjH-kX-yjs"/>
                                     <constraint firstItem="OeY-uF-iZm" firstAttribute="leading" secondItem="c4i-Rh-T5d" secondAttribute="leading" id="WF1-LQ-40s"/>
                                     <constraint firstItem="OeY-uF-iZm" firstAttribute="centerX" secondItem="c4i-Rh-T5d" secondAttribute="centerX" id="cHA-eQ-nXl"/>
                                     <constraint firstAttribute="bottom" secondItem="OeY-uF-iZm" secondAttribute="bottom" constant="20" id="kQr-f0-K67"/>
@@ -78,13 +78,26 @@
                                     <outletCollection property="gestureRecognizers" destination="hS5-yN-9hp" appends="YES" id="2HV-3Y-3GL"/>
                                 </connections>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qci-hg-om7">
+                                <rect key="frame" x="0.0" y="44" width="375" height="75"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="pfE-3r-x7X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Qci-hg-om7" firstAttribute="leading" secondItem="eJt-j8-BIS" secondAttribute="leading" id="PWl-M4-YFP"/>
                             <constraint firstItem="eJt-j8-BIS" firstAttribute="trailing" secondItem="uyU-9T-nFe" secondAttribute="trailing" id="izN-E2-XsG"/>
                             <constraint firstItem="eJt-j8-BIS" firstAttribute="bottom" secondItem="uyU-9T-nFe" secondAttribute="bottom" constant="45" id="njc-3X-VNQ"/>
                             <constraint firstItem="uyU-9T-nFe" firstAttribute="leading" secondItem="zEJ-2M-WE9" secondAttribute="leading" id="oi7-nJ-wSx"/>
                             <constraint firstItem="uyU-9T-nFe" firstAttribute="top" secondItem="eJt-j8-BIS" secondAttribute="top" constant="45" id="pyS-g3-8Ny"/>
+                            <constraint firstItem="eJt-j8-BIS" firstAttribute="trailing" secondItem="Qci-hg-om7" secondAttribute="trailing" id="rSF-Su-x5j"/>
+                            <constraint firstItem="Qci-hg-om7" firstAttribute="top" secondItem="eJt-j8-BIS" secondAttribute="top" id="skF-7W-XMx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eJt-j8-BIS"/>
                     </view>
@@ -107,6 +120,7 @@
                         <outlet property="choiceTwoLabel" destination="d8O-yN-3lQ" id="rWp-0s-1nz"/>
                         <outlet property="choiceTwoView" destination="OeY-uF-iZm" id="AZk-KE-nCa"/>
                         <outlet property="choicesView" destination="uyU-9T-nFe" id="EaL-ej-daZ"/>
+                        <outlet property="tournamentTitle" destination="Qci-hg-om7" id="daY-ZW-KJz"/>
                         <outlet property="tournamentView" destination="zEJ-2M-WE9" id="k18-Wq-xYW"/>
                     </connections>
                 </viewController>
