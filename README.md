@@ -1,2 +1,2 @@
 # Bracket
-App Idea for Making and Taking Brackets
+## Social Media iOS App for Creating, Completing, and Comparing Brackets! 
