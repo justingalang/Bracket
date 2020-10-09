@@ -10,7 +10,7 @@ A look at the fully functioning Login screen using Firebase Authentication
 #### Opening the application and tournament completion
 <img src=https://github.com/justingalang/Bracket/blob/master/TournamentCompletionDemo.gif width=200><br>
 
-##### In this demo you see the:
+#### In this demo you see the:
 - The launch screen with Bracket Logo
 - List of Demo Tournaments
 - Opening Tournament Previews
@@ -18,7 +18,7 @@ A look at the fully functioning Login screen using Firebase Authentication
   - Traversing tournament 
   - Reversing through tournament to change answers
   
-##### Features to be added in the future:
+#### Features to be added in the future:
 - Tournament Photos
 - Tournament Progress bar
 - Reading tournaments from Google Firestore
