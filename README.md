@@ -26,4 +26,4 @@ A look at the fully functioning Login screen using Firebase Authentication
   - Firestore is already connected but tournaments are hardcoded for demonstration
 
 
-#### Many more features are in the works! 
+## Many more features are in the works! 
